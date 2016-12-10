@@ -42,12 +42,27 @@ module.exports = yeoman.Base.extend({
                 name: 'messagingSenderId',
                 message: 'Your Firebase Messaging Sender Id'
             },
+            {
+                type: 'confirm',
+                name: 'initGit',
+                default: true,
+                message: 'Would you like me to init a git repo here?'
+            }
         ];
 
         return this.prompt(prompts).then(function (props) {
             // To access props later use this.props.someAnswer;
             this.props = props;
         }.bind(this));
+    },
+    configuring: function() {
+        if(this.props.initGit) {
+            this.composeWith('git-init', {
+                options: { commit: 'Initial commit by angular-2-firebase-bootstrap generator' }
+            }, {
+                local: require.resolve('generator-git-init')
+            });
+        }
     },
 
     writing: function () {
