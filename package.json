@@ -1,12 +1,10 @@
 {
   "name": "generator-angular-2-firebase-bootstrap",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Generator for Angular 2 - Firebase - Bootstrap projects",
   "homepage": "",
   "author": {
-    "name": "Bernard Niset",
-    "email": "bernard.niset@gmail.com",
-    "url": ""
+    "name": "Bernard Niset"
   },
   "files": [
     "generators"
