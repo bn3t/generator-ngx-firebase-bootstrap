@@ -68,7 +68,6 @@ module.exports = yeoman.Base.extend({
     writing: function () {
         var toCopy = [
             "./.editorconfig",
-            "./.gitignore",
             "./e2e/app.po.ts",
             "./e2e/tsconfig.json",
             "./karma.conf.js",
@@ -101,6 +100,7 @@ module.exports = yeoman.Base.extend({
             "./src/environments/firebaseConfig.ts",
             "./src/index.html"
         ];
+        this.fs.copy(this.templatePath("_gitignore"), this.destinationPath(".gitignore"));
         var i;
         for(i = 0; i < toCopy.length; i++) {
             this.fs.copy(this.templatePath(toCopy[i]), this.destinationPath(toCopy[i]));
