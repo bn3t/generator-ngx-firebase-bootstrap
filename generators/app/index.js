@@ -7,7 +7,7 @@ module.exports = yeoman.Base.extend({
     prompting: function () {
         // Have Yeoman greet the user.
         this.log(yosay(
-            'Welcome to the laudable ' + chalk.red('generator-angular-2-firebase-bootstrap') + ' generator!'
+            'Welcome to the laudable ' + chalk.red('generator-angular2-firebase-bootstrap') + ' generator!'
         ));
 
         var prompts = [

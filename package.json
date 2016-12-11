@@ -1,5 +1,5 @@
 {
-  "name": "generator-angular-2-firebase-bootstrap",
+  "name": "generator-angular2-firebase-bootstrap",
   "version": "1.0.2",
   "description": "Generator for Angular 2 - Firebase - Bootstrap projects",
   "homepage": "",
@@ -42,7 +42,7 @@
       "mocha": true
     }
   },
-  "repository": "bn3t/generator-angular-2-firebase-bootstrap",
+  "repository": "bn3t/generator-angular2-firebase-bootstrap",
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp"

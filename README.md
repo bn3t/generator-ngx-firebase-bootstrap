@@ -1,13 +1,13 @@
-# generator-angular-2-firebase-bootstrap [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-angular2-firebase-bootstrap [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 > Generator for Angular 2 - Firebase - Bootstrap projects
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-angular-2-firebase-bootstrap using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and generator-angular2-firebase-bootstrap using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```bash
 npm install -g yo
-npm install -g generator-angular-2-firebase-bootstrap
+npm install -g generator-angular2-firebase-bootstrap
 ```
 
 Then generate your new project:
@@ -31,7 +31,7 @@ as we don't provide forms for registration and login, the Email/Password is not 
 
 1. Create a project folder and enter it: `mkdir myProject && cd $_`
 
-2. Generate project: `yo generator-angular-2-firebase-bootstrap`
+2. Generate project: `yo generator-angular2-firebase-bootstrap`
 
 The generator will ask you a few information on your Firebase project:
 
@@ -84,9 +84,9 @@ To get more help on the `angular-cli` use `ng --help` or go check out the [Angul
 Apache-2.0 © [Bernard Niset]()
 
 
-[npm-image]: https://badge.fury.io/js/generator-angular-2-firebase-bootstrap.svg
-[npm-url]: https://npmjs.org/package/generator-angular-2-firebase-bootstrap
-[travis-image]: https://travis-ci.org/bn3t/generator-angular-2-firebase-bootstrap.svg?branch=master
-[travis-url]: https://travis-ci.org/bn3t/generator-angular-2-firebase-bootstrap
-[daviddm-image]: https://david-dm.org/bn3t/generator-angular-2-firebase-bootstrap.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/bn3t/generator-angular-2-firebase-bootstrap
+[npm-image]: https://badge.fury.io/js/generator-angular2-firebase-bootstrap.svg
+[npm-url]: https://npmjs.org/package/generator-angular2-firebase-bootstrap
+[travis-image]: https://travis-ci.org/bn3t/generator-angular2-firebase-bootstrap.svg?branch=master
+[travis-url]: https://travis-ci.org/bn3t/generator-angular2-firebase-bootstrap
+[daviddm-image]: https://david-dm.org/bn3t/generator-angular2-firebase-bootstrap.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/bn3t/generator-angular2-firebase-bootstrap
