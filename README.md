@@ -46,7 +46,15 @@ in those values in the firebaseConfig.ts file in the generated project.
 
 The generator will also optionally run `git init` on your project and do an initial commit for you.
 
-##Angular 2 Specifics
+## Firebase Authentication example
+
+The generated project will contain example code to authenticate to your project in Firebase. For this to actually work,
+you will have to enable authentication in your firebase project. The project supports Email/Password, Google Sign-In and Twitter.
+Go to [Firebase Authentication Documentation](https://firebase.google.com/docs/auth/) to find out how to enable authentication for your
+project in Firebase. Please note that to use Email/Password authentication you will have to register users yourself via the 
+Firebase Console.
+
+## Angular 2 Specifics
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.21.
 
