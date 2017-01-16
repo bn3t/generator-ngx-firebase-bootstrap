@@ -1,19 +1,61 @@
 <div class="container">
-
     <h1>
         {{title}}
     </h1>
-    <div class="row">
-        <div *ngIf="isLoggedIn()|async">
-            {{(currentUser()|async).displayName}}
+    <div class="row" *ngIf="isLoggedIn()|async">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">User Information</div>
+                    <ul class="list-group">
+                        <li class="list-group-item">Email: {{(currentUser()|async).email}}</li>
+                        <li class="list-group-item">Display Name: {{(currentUser()|async).displayName}}</li>
+                        <li class="list-group-item">Uid: {{(currentUser()|async).uid}}</li>
+                        <li class="list-group-item">Provider Id: {{(currentUser()|async).providerId}}</li>
+                        <li class="list-group-item" *ngIf="(currentUser()|async).photoURL"><img [src]="(currentUser()|async).photoURL"/></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-md-offset-5">
+                    <a href="#" class="btn btn-lg btn-primary btn-block" (click)="logout()">Log out</a>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-3">
-            <button (click)="login()" *ngIf="!(isLoggedIn()|async)">Log in</button>
-        </div>
-        <div class="col-md-3">
-            <button (click)="logout()" *ngIf="isLoggedIn()|async">Log out</button>
+        <div class="main" *ngIf="!(isLoggedIn()|async)">
+
+            <h3>Please Log In
+                <!--, or <a href="#">Sign Up</a>-->
+            </h3>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <a href="#" class="btn btn-lg btn-primary btn-block" (click)="loginVia('twitter')">Twitter</a>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <a href="#" class="btn btn-lg btn-info btn-block" (click)="loginVia('google')">Google</a>
+                </div>
+            </div>
+            <div class="login-or">
+                <hr class="hr-or">
+                <span class="span-or">or</span>
+            </div>
+
+            <form role="form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input required type="text" class="form-control" id="email" name="email" [(ngModel)]="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password">
+                </div>
+                <button class="btn btn btn-primary" (click)="login()">
+                    Log In
+                </button>
+            </form>
+
         </div>
     </div>
 </div>

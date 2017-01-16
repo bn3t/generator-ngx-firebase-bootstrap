@@ -9,14 +9,19 @@ import {UserInfo} from "app/shared/user-info";
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    title = 'app works! - ' + '<%= name %>';
+    title = 'app works! - ' + 'myproject';
 
-    constructor(private authService: AuthService) {
+    email: string;
+    password: string;
 
-    }
+    constructor(private authService: AuthService) {}
 
     login() {
-        this.authService.loginViaProvider("google");
+        this.authService.login(this.email, this.password);
+    }
+
+    loginVia(provider: string) {
+        this.authService.loginViaProvider(provider);
     }
 
     logout() {
