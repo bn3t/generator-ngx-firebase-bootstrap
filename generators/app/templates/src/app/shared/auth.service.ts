@@ -34,13 +34,12 @@ export class AuthService {
                 this.auth = null;
                 userInfo.isAnonymous = true;
             }
-            console.log("AuthService: ", userInfo);
             this.userInfoSubject.next(userInfo);
         });
     }
 
     login(email: string, password: string) {
-        console.log("login: ", email);
+        // console.log("login: ", email);
         this.initUserInfoSubject();
         this.angularFireAuth.login({email: email, password: password});
     }
@@ -54,13 +53,11 @@ export class AuthService {
     }
 
     logout() {
-        console.log("logout()");
         this.initUserInfoSubject();
         this.angularFireAuth.logout();
     }
 
     isLoggedIn(): Observable<boolean> {
-        console.log("isLoggedIn?");
         let isLoggedInBS = new AsyncSubject<boolean>();
         this.userInfoSubject.subscribe(ui => {
             // console.log("isLoggedIn: anonymous=" + ui.isAnonymous);
@@ -73,7 +70,6 @@ export class AuthService {
     }
 
     updateDisplayName(displayName: string): Observable<string> {
-        console.log("updateDisplayName: ", displayName);
         let result = new Subject<string>();
         //noinspection TypeScriptUnresolvedFunction
         this.auth.updateProfile({displayName: displayName, photoURL: null}).then(a => {
@@ -83,14 +79,12 @@ export class AuthService {
     }
 
     createUser(email: string, password: string, displayName: string) {
-        console.log("createUser: email=" + email + " displayName: " + displayName);
         //noinspection TypeScriptUnresolvedFunction
         this.angularFireAuth.createUser({email: email, password: password})
             .then(auth => auth.auth.updateProfile({displayName: displayName, photoURL: null}));
     }
 
     updateEmail(email: string): Observable<string> {
-        console.log("updateEmail: ", email);
         let result = new Subject<string>();
         //noinspection TypeScriptUnresolvedFunction
         this.auth.updateEmail(email).then(a => {
@@ -100,7 +94,6 @@ export class AuthService {
     }
 
     updatePassword(password: string): Observable<string> {
-        console.log("updatePassword: ", password);
         let result = new Subject<string>();
         //noinspection TypeScriptUnresolvedFunction
         this.auth.updatePassword(password).then(a => {
