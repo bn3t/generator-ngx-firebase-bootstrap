@@ -9,7 +9,7 @@ import {UserInfo} from "app/shared/user-info";
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    title = 'app works! - ' + 'myproject';
+    title = 'app works! - <%= name %>';
 
     email: string;
     password: string;
