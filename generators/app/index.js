@@ -74,7 +74,6 @@ module.exports = yeoman.Base.extend({
             "./protractor.conf.js",
             "./src/app/app.component.css",
             "./src/app/app.component.html",
-            "./src/app/app.component.spec.ts",
             "./src/app/app.module.ts",
             "./src/app/index.ts",
             "./src/app/shared/auth.service.ts",
@@ -97,6 +96,7 @@ module.exports = yeoman.Base.extend({
             "./package.json",
             "./README.md",
             "./src/app/app.component.ts",
+            "./src/app/app.component.spec.ts",
             "./src/environments/firebaseConfig.ts",
             "./src/index.html"
         ];
