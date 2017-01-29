@@ -7,10 +7,14 @@ import { AppComponent } from './app.component';
 import {authConfig, firebaseConfig} from "environments/firebaseConfig";
 import {AngularFireModule} from "angularfire2";
 import {AuthService} from "app/shared/auth.service";
+import {LoginUserComponent} from "app/login-user/login-user.component";
+import {DisplayUserComponent} from "app/display-user/display-user.component";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DisplayUserComponent,
+    LoginUserComponent
   ],
   imports: [
     BrowserModule,
