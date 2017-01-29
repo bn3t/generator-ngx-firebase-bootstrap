@@ -18,17 +18,11 @@ export class AuthService {
             let userInfo = new UserInfo();
             if (auth != null) {
                 this.auth = auth.auth;
-                //noinspection TypeScriptUnresolvedVariable
                 userInfo.isAnonymous = auth.auth.isAnonymous;
-                //noinspection TypeScriptUnresolvedVariable
                 userInfo.email = auth.auth.email;
-                //noinspection TypeScriptUnresolvedVariable
                 userInfo.displayName = auth.auth.displayName;
-                //noinspection TypeScriptUnresolvedVariable
                 userInfo.providerId = auth.auth.providerId;
-                //noinspection TypeScriptUnresolvedVariable
                 userInfo.photoURL = auth.auth.photoURL;
-                //noinspection TypeScriptUnresolvedVariable
                 userInfo.uid = auth.auth.uid;
             } else {
                 this.auth = null;

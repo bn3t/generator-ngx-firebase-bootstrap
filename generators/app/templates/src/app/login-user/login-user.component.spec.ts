@@ -1,28 +1,45 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
-import { LoginUserComponent } from './login-user.component';
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
+import {LoginUserComponent} from "./login-user.component";
+import {AuthService} from "app/shared/auth.service";
+import {FormsModule} from "@angular/forms";
+import {AsyncSubject, Observable, ReplaySubject} from "rxjs";
+import {UserInfo} from "app/shared/user-info";
 
 describe('LoginUserComponent', () => {
-  let component: LoginUserComponent;
-  let fixture: ComponentFixture<LoginUserComponent>;
+    let component: LoginUserComponent;
+    let fixture: ComponentFixture<LoginUserComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ LoginUserComponent ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(async(() => {
+        let authServiceStub = {
+            login: function () {
+                return true
+            },
+            logout: function () {
+                return true
+            },
+            isLoggedIn: function () {
+                return new AsyncSubject<boolean>();
+            }
+        };
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(LoginUserComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        TestBed.configureTestingModule({
+            imports: [FormsModule],
+            declarations: [LoginUserComponent],
+            providers: [
+                {provide: AuthService, useValue: authServiceStub}
+            ]
+        })
+            .compileComponents();
+    }));
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(LoginUserComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
+
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
