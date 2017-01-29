@@ -1,6 +1,6 @@
 {
   "name": "generator-angular2-firebase-bootstrap",
-  "version": "1.0.7-SNAPSHOT",
+  "version": "1.0.7",
   "description": "Generator for Angular 2 - Firebase - Bootstrap projects",
   "homepage": "",
   "author": {
