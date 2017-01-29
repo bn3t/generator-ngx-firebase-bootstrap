@@ -1,13 +1,16 @@
 'use strict';
-var yeoman = require('yeoman-generator');
+var Generator = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 
-module.exports = yeoman.Base.extend({
-    prompting: function () {
+module.exports = class extends Generator {
+    constructor(args, opts) {
+        super(args, opts);
+    }
+    prompting() {
         // Have Yeoman greet the user.
         this.log(yosay(
-            'Welcome to the laudable ' + chalk.red('generator-angular2-firebase-bootstrap') + ' generator!'
+            'Welcome to the laudable ' + chalk.red('angular2-firebase-bootstrap') + ' generator!'
         ));
 
         var prompts = [
@@ -54,8 +57,8 @@ module.exports = yeoman.Base.extend({
             // To access props later use this.props.someAnswer;
             this.props = props;
         }.bind(this));
-    },
-    configuring: function() {
+    }
+    configuring() {
         if(this.props.initGit) {
             this.composeWith('git-init', {
                 options: { commit: 'Initial commit by angular-2-firebase-bootstrap generator' }
@@ -63,9 +66,9 @@ module.exports = yeoman.Base.extend({
                 local: require.resolve('generator-git-init')
             });
         }
-    },
+    }
 
-    writing: function () {
+    writing () {
         var toCopy = [
             "./.editorconfig",
             "./e2e/app.po.ts",
@@ -116,9 +119,9 @@ module.exports = yeoman.Base.extend({
         for(i = 0; i < toCopyTpl.length; i++) {
             this.fs.copyTpl(this.templatePath(toCopyTpl[i]), this.destinationPath(toCopyTpl[i]), this.props);
         }
-    },
+    }
 
-    install: function () {
+    install() {
         this.npmInstall();
     }
-});
+};
