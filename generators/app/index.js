@@ -61,7 +61,7 @@ module.exports = class extends Generator {
     configuring() {
         if(this.props.initGit) {
             this.composeWith('git-init', {
-                options: { commit: 'Initial commit by angular-2-firebase-bootstrap generator' }
+                options: { commit: 'Initial commit by angular2-firebase-bootstrap generator' }
             }, {
                 local: require.resolve('generator-git-init')
             });
