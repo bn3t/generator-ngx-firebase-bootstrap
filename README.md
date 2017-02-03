@@ -8,6 +8,8 @@ First, install [Yeoman](http://yeoman.io) and generator-angular2-firebase-bootst
 ```bash
 npm install -g yo
 npm install -g generator-angular2-firebase-bootstrap
+# If you want this generator to init a git repository for yoy
+npm install -g generator-git-init
 ```
 
 Then generate your new project:
@@ -18,10 +20,12 @@ yo angular2-firebase-bootstrap
 
 ## Features
 
-* Angular 2 with angular-cli.
+* An Angular 2 generated with angular-cli.
 * Bootstrap with ng2-bootstrap
 * AngularFire2 for Firebase
-* An initial implementation of an authentication service (See auth-service).
+* An initial implementation of an authentication service (See auth-service)
+* One ready to use component to display user information (from Firebase)
+* One ready to use component to login using username/password, Google or Twitter.
 
 ## Getting Started
 
@@ -30,8 +34,7 @@ Authentication. The seeded project contains the auth-service that can handle sev
 as we don't provide forms for registration and login, the Email/Password is not supported as such.
 
 1. Create a project folder and enter it: `mkdir myProject && cd $_`
-
-2. Generate project: `yo generator-angular2-firebase-bootstrap`
+2. Generate project: `yo angular2-firebase-bootstrap`
 
 The generator will ask you a few information on your Firebase project:
 
@@ -53,6 +56,9 @@ you will have to enable authentication in your firebase project. The project sup
 Go to [Firebase Authentication Documentation](https://firebase.google.com/docs/auth/) to find out how to enable authentication for your
 project in Firebase. Please note that to use Email/Password authentication you will have to register users yourself via the 
 Firebase Console.
+
+The generated project will contain 2 ready to be used components for login and display user information. They are initially
+present in the home page of the application but can be moved elsewhere at your convenience.
 
 ## Angular 2 Specifics
 
