@@ -13,7 +13,7 @@ npm install -g generator-angular2-firebase-bootstrap
 Then generate your new project:
 
 ```bash
-yo angular-2-firebase-bootstrap
+yo angular2-firebase-bootstrap
 ```
 
 ## Features
