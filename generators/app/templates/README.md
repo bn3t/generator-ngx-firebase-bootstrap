@@ -10,7 +10,7 @@ This project is a generator for creating new projects with the following feature
 
 ## Configuration
 
-You will need to configure your firebase credentials in firebaseConfig.ts. This can be copie 
+You will need to configure your firebase credentials in firebaseConfig.ts. This can be copied 
 almost directly from the proposed configuration from the Firebase console.
 
 ```angular2html
