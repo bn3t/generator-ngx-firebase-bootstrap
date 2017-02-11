@@ -29,11 +29,13 @@ yo angular2-firebase-bootstrap
 
 ## Getting Started
 
-You should have your Firebase project created in Firebase. For authentication to work, you should enable Google 
-Authentication. The seeded project contains the auth-service that can handle several types of authentication. But
-as we don't provide forms for registration and login, the Email/Password is not supported as such.
+You should have your Firebase project created in Firebase. For this, go to the [Firebase Console](https://console.firebase.google.com/)
+and create a new project, in the newly created project go to 'Add Firebase to your web app'. This option will give you all the credential
+information you will need later. For authentication to work, you should enable Google 
+Authentication. The seeded project contains the auth-service that can handle several types of authentication. Please note, that
+at this moment the generated project does not provide a form for registration.
 
-1. Create a project folder and enter it: `mkdir myProject && cd $_`
+1. Create a project folder and enter it: `mkdir myproject && cd $_`
 2. Generate project: `yo angular2-firebase-bootstrap`
 
 The generator will ask you a few information on your Firebase project:
@@ -54,7 +56,7 @@ The generator will also optionally run `git init` on your project and do an init
 The generated project will contain example code to authenticate to your project in Firebase. For this to actually work,
 you will have to enable authentication in your firebase project. The project supports Email/Password, Google Sign-In and Twitter.
 Go to [Firebase Authentication Documentation](https://firebase.google.com/docs/auth/) to find out how to enable authentication for your
-project in Firebase. Please note that to use Email/Password authentication you will have to register users yourself via the 
+project in Firebase. Please note that to use Email/Password authentication, so you will have to register users yourself via the 
 Firebase Console.
 
 The generated project will contain 2 ready to be used components for login and display user information. They are initially
@@ -62,7 +64,8 @@ present in the home page of the application but can be moved elsewhere at your c
 
 ## Angular 2 Specifics
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.21.
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.21. It currently runs
+fine with angular-cli version 1.0.0-beta.24.
 
 ### Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
