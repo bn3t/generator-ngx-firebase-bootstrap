@@ -24,8 +24,8 @@ export class LoginUserComponent {
 
     login(value: any) {
         if (this.form.valid) {
-            this.form.reset();
             this.authService.login(this.email.value, this.password.value);
+            this.form.reset();
         }
     }
 
