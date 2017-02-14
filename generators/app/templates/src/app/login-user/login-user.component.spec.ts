@@ -2,7 +2,7 @@
 import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 import {LoginUserComponent} from "./login-user.component";
 import {AuthService} from "app/shared/auth.service";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AsyncSubject, Observable, ReplaySubject} from "rxjs";
 import {UserInfo} from "app/shared/user-info";
 
@@ -24,7 +24,10 @@ describe('LoginUserComponent', () => {
         };
 
         TestBed.configureTestingModule({
-            imports: [FormsModule],
+            imports: [
+                FormsModule,
+                ReactiveFormsModule
+            ],
             declarations: [LoginUserComponent],
             providers: [
                 {provide: AuthService, useValue: authServiceStub}

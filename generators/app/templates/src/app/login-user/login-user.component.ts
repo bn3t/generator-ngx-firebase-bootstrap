@@ -1,6 +1,7 @@
 import {Component} from "@angular/core";
 import {Observable} from "rxjs";
 import {AuthService} from "app/shared/auth.service";
+import {FormBuilder, Validators, AbstractControl, FormGroup} from "@angular/forms";
 
 @Component({
     selector: 'app-login-user',
@@ -8,15 +9,24 @@ import {AuthService} from "app/shared/auth.service";
     styleUrls: ['./login-user.component.css']
 })
 export class LoginUserComponent {
+    form: FormGroup;
+    email: AbstractControl;
+    password: AbstractControl;
 
-    email: string;
-    password: string;
-
-    constructor(private authService: AuthService) {
+    constructor(private authService: AuthService, private fb: FormBuilder) {
+        this.form = fb.group({
+            'email': ['', Validators.required],
+            'password': ['', Validators.required]
+        });
+        this.email = this.form.controls['email'];
+        this.password = this.form.controls['password'];
     }
 
-    login() {
-        this.authService.login(this.email, this.password);
+    login(value: any) {
+        if (this.form.valid) {
+            this.authService.login(this.email.value, this.password.value);
+            this.form.reset();
+        }
     }
 
     loginVia(provider: string) {
