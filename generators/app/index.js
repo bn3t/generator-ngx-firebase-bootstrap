@@ -88,6 +88,7 @@ module.exports = class extends Generator {
             "./src/app/app.component.html",
             "./src/app/app.module.ts",
             "./src/app/index.ts",
+            "./src/app/shared/auth.service.stub.ts",
             "./src/app/shared/auth.service.ts",
             "./src/app/shared/user-info.ts",
             "./src/assets/.gitkeep",

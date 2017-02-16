@@ -6,38 +6,7 @@ import {FormsModule} from "@angular/forms";
 import {AuthService} from "app/shared/auth.service";
 import {UserInfo} from "app/shared/user-info";
 import {By} from "@angular/platform-browser";
-
-class AuthServiceStub {
-
-    constructor(private loggedin: boolean) {
-    }
-
-    login(email: string, password: string) {
-    }
-
-    currentUser(): Observable<UserInfo> {
-        let userInfo = new UserInfo();
-        userInfo.displayName = "my-display-name";
-        userInfo.email = "my-email";
-        userInfo.uid = "my-uid";
-        userInfo.isAnonymous = false;
-        userInfo.photoURL = "my-photo-url";
-        userInfo.providerId = "my-provider-id";
-
-        let replaySubject = new ReplaySubject();
-        if (this.loggedin) {
-            replaySubject.next(userInfo);
-        }
-        return replaySubject;
-    }
-
-    isLoggedIn(): Observable<boolean> {
-        let isLoggedInBS = new AsyncSubject<boolean>();
-        isLoggedInBS.next(true);
-        isLoggedInBS.complete();
-        return isLoggedInBS;
-    }
-}
+import {AuthServiceStub} from "app/shared/auth.service.stub";
 
 describe('DisplayUserComponent', () => {
 

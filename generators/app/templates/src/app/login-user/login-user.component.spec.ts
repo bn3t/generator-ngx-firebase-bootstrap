@@ -5,23 +5,14 @@ import {AuthService} from "app/shared/auth.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AsyncSubject, Observable, ReplaySubject} from "rxjs";
 import {UserInfo} from "app/shared/user-info";
+import {AuthServiceStub} from "app/shared/auth.service.stub";
 
 describe('LoginUserComponent', () => {
     let component: LoginUserComponent;
     let fixture: ComponentFixture<LoginUserComponent>;
 
     beforeEach(async(() => {
-        let authServiceStub = {
-            login: function () {
-                return true
-            },
-            logout: function () {
-                return true
-            },
-            isLoggedIn: function () {
-                return new AsyncSubject<boolean>();
-            }
-        };
+        let authServiceStub = new AuthServiceStub(true);
 
         TestBed.configureTestingModule({
             imports: [

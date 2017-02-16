@@ -1,21 +1,20 @@
-<div class="row" *ngIf="isLoggedIn()|async">
-  <div class="row">
+<div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <div class="panel panel-default">
-        <div class="panel-heading">User Information</div>
-        <ul class="list-group">
-          <li class="list-group-item">Email: {{(currentUser()|async).email}}</li>
-          <li class="list-group-item">Display Name: {{(currentUser()|async).displayName}}</li>
-          <li class="list-group-item">Uid: {{(currentUser()|async).uid}}</li>
-          <li class="list-group-item">Provider Id: {{(currentUser()|async).providerId}}</li>
-          <li class="list-group-item" *ngIf="(currentUser()|async).photoURL"><img [src]="(currentUser()|async).photoURL"/></li>
-        </ul>
-      </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">User Information</div>
+            <ul class="list-group">
+                <li class="list-group-item">Email: {{(currentUser()|async).email}}</li>
+                <li class="list-group-item">Display Name: {{(currentUser()|async).displayName}}</li>
+                <li class="list-group-item">Uid: {{(currentUser()|async).uid}}</li>
+                <li class="list-group-item">Provider Id: {{(currentUser()|async).providerId}}</li>
+                <li class="list-group-item" *ngIf="(currentUser()|async).photoURL"><img
+                        [src]="(currentUser()|async).photoURL"/></li>
+            </ul>
+        </div>
     </div>
-    <div class="row">
-      <div class="col-md-3 col-md-offset-5">
+</div>
+<div class="row">
+    <div class="col-md-3 col-md-offset-5">
         <a href="#" class="btn btn-lg btn-primary btn-block" (click)="logout()">Log out</a>
-      </div>
     </div>
-  </div>
 </div>
