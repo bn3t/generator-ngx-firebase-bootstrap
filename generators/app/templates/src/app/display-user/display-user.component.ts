@@ -12,10 +12,6 @@ export class DisplayUserComponent {
 
     constructor(private authService: AuthService) {}
 
-    isLoggedIn(): Observable<boolean> {
-        return this.authService.isLoggedIn();
-    }
-
     currentUser(): Observable<UserInfo> {
         return this.authService.currentUser();
     }

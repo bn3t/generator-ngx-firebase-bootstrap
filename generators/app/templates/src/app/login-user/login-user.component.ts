@@ -32,8 +32,4 @@ export class LoginUserComponent {
     loginVia(provider: string) {
         this.authService.loginViaProvider(provider);
     }
-
-    isLoggedIn(): Observable<boolean> {
-        return this.authService.isLoggedIn();
-    }
 }
