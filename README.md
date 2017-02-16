@@ -24,8 +24,9 @@ yo angular2-firebase-bootstrap
 * Bootstrap with ng2-bootstrap
 * AngularFire2 for Firebase
 * An initial implementation of an authentication service (See auth-service)
-* One ready to use component to display user information (from Firebase)
-* One ready to use component to login using username/password, Google or Twitter.
+* One component to display user information (from Firebase)
+* One component to login using username/password, Google or Twitter
+* One component to allow a user to register himself with username/password.
 
 ## Getting Started
 
