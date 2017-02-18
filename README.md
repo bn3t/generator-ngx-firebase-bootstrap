@@ -20,7 +20,7 @@ yo angular2-firebase-bootstrap
 
 ## Features
 
-* An Angular 2 generated with angular-cli.
+* An Angular 2 generated with @angular/cli.
 * Bootstrap with ng2-bootstrap
 * AngularFire2 for Firebase
 * An initial implementation of an authentication service (See auth-service)
