@@ -1,7 +1,7 @@
 {
   "project": {
     "version": "1.0.0-beta.21",
-    "name": "<%= name %>"
+    "name": "myproject"
   },
   "apps": [
     {
@@ -22,8 +22,8 @@
         "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       ],
       "scripts": [],
+      "environmentSource": "environments/environment.ts",
       "environments": {
-        "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }

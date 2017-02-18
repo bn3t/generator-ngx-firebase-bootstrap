@@ -1,20 +1,24 @@
-import {Injectable, EventEmitter, Output} from "@angular/core";
+import {Injectable, Inject} from "@angular/core";
 import {User} from "firebase";
-import {AngularFireAuth, AuthProviders, AuthMethods} from "angularfire2";
-import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {AngularFireAuth, AuthProviders, AuthMethods, AngularFire, FirebaseApp} from "angularfire2";
 import {UserInfo} from "./user-info";
 import {Observable, Subject, ReplaySubject, AsyncSubject} from "rxjs";
+import Auth = firebase.auth.Auth;
 
 @Injectable()
 export class AuthService {
     private userInfoSubject: ReplaySubject<UserInfo>;
     private auth: User;
+    private firebaseAuth: Auth;
 
-    constructor(private angularFireAuth: AngularFireAuth) {
+    constructor(private angularFireAuth: AngularFireAuth, @Inject(FirebaseApp) firebaseApp: any) {
         this.initUserInfoSubject();
         // console.log("AuthService");
+        this.firebaseAuth = firebaseApp.auth();
+
         angularFireAuth.subscribe(auth => {
             // console.log("auth: ", JSON.stringify(auth));
+
             let userInfo = new UserInfo();
             if (auth != null) {
                 this.auth = auth.auth;
@@ -55,8 +59,8 @@ export class AuthService {
         let isLoggedInBS = new AsyncSubject<boolean>();
         this.userInfoSubject.subscribe(ui => {
             // console.log("isLoggedIn: anonymous=" + ui.isAnonymous);
-                isLoggedInBS.next(!ui.isAnonymous);
-                isLoggedInBS.complete();
+            isLoggedInBS.next(!ui.isAnonymous);
+            isLoggedInBS.complete();
             // setTimeout(() => {
             // }, 0);
         });
@@ -96,6 +100,10 @@ export class AuthService {
         return result.asObservable();
     }
 
+    sendPasswordResetEmail(email: string) {
+        this.firebaseAuth.sendPasswordResetEmail(email);
+    }
+
     loginViaProvider(provider: string): Observable<String> {
         let result = new Subject<string>();
         if (provider === "google") {
@@ -103,9 +111,9 @@ export class AuthService {
             this.angularFireAuth
                 .login({provider: AuthProviders.Google, method: AuthMethods.Popup})
                 //noinspection TypeScriptUnresolvedFunction
-                .  //noinspection TypeScriptUnresolvedFunction
+                .//noinspection TypeScriptUnresolvedFunction
                 then(auth => result.next("success"))
-                        .catch(err => result.error(err));
+                .catch(err => result.error(err));
             return result.asObservable();
         }
         else if (provider === "twitter") {
@@ -113,9 +121,9 @@ export class AuthService {
             this.angularFireAuth
                 .login({provider: AuthProviders.Twitter, method: AuthMethods.Popup})
                 //noinspection TypeScriptUnresolvedFunction
-                .  //noinspection TypeScriptUnresolvedFunction
+                .//noinspection TypeScriptUnresolvedFunction
                 then(auth => result.next("success"))
-                        .catch(err => result.error(err));
+                .catch(err => result.error(err));
             return result.asObservable();
         }
         result.error("Not a supported authentication method: " + provider)

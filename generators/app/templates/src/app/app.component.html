@@ -13,4 +13,9 @@
             <app-register-user></app-register-user>
         </div>
     </div>
+    <div class="row">
+        <div *ngIf="!(isLoggedIn()|async)" class="col-md-4 col-md-offset-1">
+            <app-reset-password></app-reset-password>
+        </div>
+    </div>
 </div>
