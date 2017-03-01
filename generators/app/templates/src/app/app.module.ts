@@ -12,7 +12,36 @@ import {LoginUserComponent} from "app/login-user/login-user.component";
 import {DisplayUserComponent} from "app/display-user/display-user.component";
 import {RegisterUserComponent} from "app/register-user/register-user.component";
 import {AlertModule} from "ng2-bootstrap";
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import {ResetPasswordComponent} from "./reset-password/reset-password.component";
+import {Routes, RouterModule} from "@angular/router";
+import {HomePageComponent} from "./pages/home-page.component";
+import {RegisterPageComponent} from "./pages/register-page.component";
+import {AllInOnePageComponent} from "./pages/all-in-one-page.component";
+import {LoginPageComponent} from "./pages/login-page.component";
+
+const routes: Routes = [
+    {
+        path: 'register',
+        component: RegisterPageComponent
+    },
+    {
+        path: 'all-in-one',
+        component: AllInOnePageComponent
+    },
+    {
+        path: 'reset-password',
+        component: ResetPasswordComponent
+    },
+    {
+        path: 'login',
+        component: LoginPageComponent
+    },
+    {
+        path: '',
+        pathMatch: 'full',
+        component: HomePageComponent
+    }
+];
 
 @NgModule({
     declarations: [
@@ -20,7 +49,11 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
         DisplayUserComponent,
         LoginUserComponent,
         RegisterUserComponent,
-        ResetPasswordComponent
+        ResetPasswordComponent,
+        HomePageComponent,
+        RegisterPageComponent,
+        AllInOnePageComponent,
+        LoginPageComponent
     ],
     imports: [
         BrowserModule,
@@ -28,9 +61,14 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
         ReactiveFormsModule,
         HttpModule,
         AlertModule.forRoot(),
+<<<<<<< HEAD
         AngularFireModule.initializeApp(firebaseConfig, "<%= name %>"),
         AngularFireDatabaseModule,
         AngularFireAuthModule
+=======
+        AngularFireModule.initializeApp(firebaseConfig, authConfig),
+        RouterModule.forRoot(routes)
+>>>>>>> Added page and router - work in progress.
     ],
     providers: [AuthService],
     bootstrap: [AppComponent]
