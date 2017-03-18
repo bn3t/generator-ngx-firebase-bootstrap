@@ -24,7 +24,37 @@ A Yeoman generator for creating projects based on Angular, Firebase and Twitter 
 This generator is targeted to be used with Node >= 6.9.0 and NPM => 3.0.0. You can check your version number with the command
 
 ```
-node --version && npm --version
+$ node --version && npm --version
+```
+
+### Requirement Angular CLI
+
+To build and run this project, you will need Angular CLI. This version is compatible with @angular/cli rc2. If you have
+any previous instantiation of the Angular CLI, you should remove them.
+
+```
+$ npm uninstall -g angular-cli # remove any previous angular-cli
+$ npm i -g @angular/cli
+$ ng --version # make sur you have the correct version of angular/cli
+    _                      _                 ____ _     ___
+   / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+  / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
+ / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
+/_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+               |___/
+@angular/cli: 1.0.0-rc.2
+node: 6.10.0
+os: darwin x64
+@angular/common: 2.4.10
+@angular/compiler: 2.4.10
+@angular/core: 2.4.10
+@angular/forms: 2.4.10
+@angular/http: 2.4.10
+@angular/platform-browser: 2.4.10
+@angular/platform-browser-dynamic: 2.4.10
+@angular/router: 3.4.10
+@angular/compiler-cli: 2.4.10
+@angular/cli: 1.0.0-rc.2
 ```
 
 ### Steps to install
@@ -49,8 +79,9 @@ yo angular2-firebase-bootstrap
 You should have your Firebase project created in Firebase. For this, go to the 
 [Firebase Console](https://console.firebase.google.com/) and create a new project, in the newly 
 created project go to 'Add Firebase to your web app'. This option will give you all the 
-credential information you will need when generating your project. For authentication to work, you should enable the Authentication methods you want to use. The seeded project contains a auth-service provider
-that can handle several types of authentication.
+credential information you will need when generating your project. For authentication to work, you 
+should enable the Authentication methods you want to use. The seeded project contains a auth-service 
+provider that can handle several types of authentication.
 
 ### Steps to scaffold a new project
 
