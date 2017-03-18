@@ -2,7 +2,10 @@
 
 A Yeoman generator for creating projects based on Angular, Firebase and Twitter Bootstrap.
 
-![angular](https://cloud.githubusercontent.com/assets/1102723/23092878/a480786e-f5d4-11e6-87de-eaf4eac039f5.png) ![bootstrap-social-logo-250px](https://cloud.githubusercontent.com/assets/1102723/23093011/f7b64aa6-f5d7-11e6-96ca-09f7b4324705.png) ![firebase_16-logo-250px](https://cloud.githubusercontent.com/assets/1102723/23093024/87a410d0-f5d8-11e6-9d85-37af1665808e.png)
+![angular-220px](https://cloud.githubusercontent.com/assets/1102723/24071875/b0571ecc-0bdc-11e7-940f-dc042b0578ef.png) 
+![bootstrap-social-logo-220px](https://cloud.githubusercontent.com/assets/1102723/24071881/bca110f2-0bdc-11e7-933d-7ac4d972cee4.png) 
+![firebase_16-logo-220px](https://cloud.githubusercontent.com/assets/1102723/24071871/a1a11446-0bdc-11e7-9161-399fd17f4829.png)
+
 
 ## Features
 
