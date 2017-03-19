@@ -34,6 +34,9 @@ export class LoginUserComponent {
     }
 
     loginVia(provider: string) {
-        this.authService.loginViaProvider(provider);
+        this.authService.loginViaProvider(provider).subscribe(
+            () => this.onSuccess.emit(),
+            err => this.onError.emit(err)
+        );
     }
 }
