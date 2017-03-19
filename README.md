@@ -16,12 +16,16 @@ A Yeoman generator for creating projects based on Angular, Firebase and Twitter 
 * One component to display user information
 * One component to login using username/password, Google or Twitter
 * One component to allow a user to register himself with username/password.
+* One component for password reset (when using username/password).
+
+It is up to you to use these component in your own pages. When the project is scaffolded they all included
+on the home page for demo purposes.
 
 ## Installation
 
 ### Requirement Node 6+ && NPM 3+
 
-This generator is targeted to be used with Node >= 6.9.0 and NPM => 3.0.0. You can check your version number with the command
+This generator is targeted to be used with Node >= 6.9.0 and NPM >= 3.0.0. You can check your version number with the command
 
 ```
 $ node --version && npm --version
@@ -114,11 +118,28 @@ The generator will also optionally run `git init` on your project and do an init
 
 The generated project will contain example code to authenticate to your project in Firebase. 
 For this to actually work, you will have to enable authentication in your firebase project. 
-The project supports Email/Password, Google Sign-In and Twitter. You could probably use Facebook and Github but we never tested that. Go to [Firebase Authentication Documentation](https://firebase.google.com/docs/auth/) to find out how to enable authentication for your project in Firebase. Please note that to use Email/Password authentication, so you will have to register users yourself via the Firebase Console.
+The project supports Email/Password, Google Sign-In and Twitter. You could probably use Facebook and Github 
+but we never tested that. 
 
-The generated project will contain 3 ready to be used components for login, register and display user information. They are initially present in the home page of the application but can be moved elsewhere at your convenience.
+Go to [Firebase Authentication Documentation](https://firebase.google.com/docs/auth/) to find out how to 
+enable authentication for your project in Firebase. Please note that to use Email/Password authentication, 
+so you will have to register users yourself via the Firebase Console.
 
-![Screenshot](https://cloud.githubusercontent.com/assets/1102723/23092845/0169093e-f5d4-11e6-9f1f-86f89839f96b.png)
+The generated project will contain 3 ready to be used components for login, register and display user information. 
+They are initially present in the home page of the application but can be moved elsewhere at your convenience.
+
+![Screenshot](https://cloud.githubusercontent.com/assets/1102723/24080474/38f75666-0ca0-11e7-8783-66ad793c9460.png)
+
+## Run the application
+
+To run the project using Angular CLI, do the following
+
+```
+$ ng serve
+```
+
+
+Please refer to Angular CLI documentation below.
 
 ## Deploy to Firebase Hosting
 
@@ -147,7 +168,7 @@ Then deploy to Firebase.
 firebase deploy
 ```
 
-## Angular 2 Specifics
+## Angular 2 CLI Specifics
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.21. It currently runs fine with angular-cli version 1.0.0-beta.28.3. It also supports AOT.
 
