@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, EventEmitter, Output} from "@angular/core";
 import {Observable} from "rxjs";
 import {AuthService} from "app/shared/auth.service";
 import {FormBuilder, Validators, AbstractControl, FormGroup} from "@angular/forms";
@@ -12,6 +12,8 @@ export class LoginUserComponent {
     form: FormGroup;
     email: AbstractControl;
     password: AbstractControl;
+    @Output() onSuccess = new EventEmitter();
+    @Output() onError = new EventEmitter();
 
     constructor(private authService: AuthService, private fb: FormBuilder) {
         this.form = fb.group({
@@ -24,7 +26,9 @@ export class LoginUserComponent {
 
     login(value: any) {
         if (this.form.valid) {
-            this.authService.login(this.email.value, this.password.value);
+            this.authService.login(this.email.value, this.password.value)
+                .subscribe(() => this.onSuccess.emit(),
+                    (err) => this.onError.emit(err));
             this.form.reset();
         }
     }
