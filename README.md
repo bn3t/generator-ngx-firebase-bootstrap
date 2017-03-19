@@ -74,6 +74,15 @@ Then generate your new project:
 yo angular2-firebase-bootstrap
 ```
 
+## Features
+
+* An Angular 2 generated with angular-cli.
+* Bootstrap with ng2-bootstrap
+* AngularFire2 for Firebase
+* An initial implementation of an authentication service (See auth-service)
+* One ready to use component to display user information (from Firebase)
+* One ready to use component to login using username/password, Google or Twitter.
+
 ## Getting Started
 
 You should have your Firebase project created in Firebase. For this, go to the 
@@ -86,7 +95,7 @@ provider that can handle several types of authentication.
 ### Steps to scaffold a new project
 
 1. Create a project folder and enter it: `mkdir myproject && cd $_`
-1. Generate project: `yo angular2-firebase-bootstrap`
+2. Generate project: `yo angular2-firebase-bootstrap`
 
 The generator will ask you a few information on your Firebase project:
 
