@@ -42,12 +42,16 @@ export class RegisterUserComponent implements OnInit {
         return this.authService.isLoggedIn();
     }
 
-    onSubmit(value: any) {
+    onSubmit() {
         if (this.form.valid) {
             this.authService.createUser(this.email.value, this.password.value, this.name.value)
-                .subscribe(() => this.onSuccess.emit("success"),
-                err => this.onError.emit(err));
-            this.form.reset();
+                .subscribe(
+                    () => {
+                        this.onSuccess.emit("success");
+                        this.form.reset();
+                    },
+                    err => this.onError.emit(err)
+                );
         }
     }
 

@@ -20,12 +20,16 @@ export class ResetPasswordComponent {
         this.email = this.form.controls['email'];
     }
 
-    reset(value: any) {
+    reset() {
         if (this.form.valid) {
             this.authService.sendPasswordResetEmail(this.email.value)
-                .subscribe(() => this.onSuccess.emit(),
-                    err => this.onError.emit(err));
-            this.form.reset();
+                .subscribe(
+                    () => {
+                        this.onSuccess.emit();
+                        this.form.reset();
+                    },
+                    err => this.onError.emit(err)
+                );
 
         }
     }

@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Output} from "@angular/core";
-import {Observable} from "rxjs";
 import {AuthService} from "app/shared/auth.service";
 import {FormBuilder, Validators, AbstractControl, FormGroup} from "@angular/forms";
 
@@ -24,12 +23,16 @@ export class LoginUserComponent {
         this.password = this.form.controls['password'];
     }
 
-    login(value: any) {
+    login() {
         if (this.form.valid) {
             this.authService.login(this.email.value, this.password.value)
-                .subscribe(() => this.onSuccess.emit(),
-                    (err) => this.onError.emit(err));
-            this.form.reset();
+                .subscribe(
+                    () => {
+                        this.onSuccess.emit();
+                        this.form.reset();
+                    },
+                    (err) => this.onError.emit(err)
+                );
         }
     }
 
