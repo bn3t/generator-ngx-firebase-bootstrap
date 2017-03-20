@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, Output, EventEmitter} from "@angular/core";
 import {FormGroup, AbstractControl, FormBuilder, Validators} from "@angular/forms";
 import {AuthService} from "app/shared/auth.service";
 
@@ -10,6 +10,8 @@ import {AuthService} from "app/shared/auth.service";
 export class ResetPasswordComponent {
     form: FormGroup;
     email: AbstractControl;
+    @Output() onSuccess = new EventEmitter();
+    @Output() onError = new EventEmitter();
 
     constructor(private authService: AuthService, private fb: FormBuilder) {
         this.form = fb.group({
@@ -18,10 +20,17 @@ export class ResetPasswordComponent {
         this.email = this.form.controls['email'];
     }
 
-    reset(value: any) {
+    reset() {
         if (this.form.valid) {
-            this.authService.sendPasswordResetEmail(this.email.value);
-            this.form.reset();
+            this.authService.sendPasswordResetEmail(this.email.value)
+                .subscribe(
+                    () => {
+                        this.onSuccess.emit();
+                        this.form.reset();
+                    },
+                    err => this.onError.emit(err)
+                );
+
         }
     }
 }

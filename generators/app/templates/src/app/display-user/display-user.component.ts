@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, EventEmitter, Output} from "@angular/core";
 import {AuthService} from "app/shared/auth.service";
 import {UserInfo} from "app/shared/user-info";
 import {Observable} from "rxjs";
@@ -9,6 +9,8 @@ import {Observable} from "rxjs";
     styleUrls: ['./display-user.component.css']
 })
 export class DisplayUserComponent {
+    @Output() onLoggedOut = new EventEmitter();
+
 
     constructor(private authService: AuthService) {}
 
@@ -17,6 +19,6 @@ export class DisplayUserComponent {
     }
 
     logout() {
-        this.authService.logout();
+        this.authService.logout().subscribe(() => this.onLoggedOut.emit("success"));
     }
 }
