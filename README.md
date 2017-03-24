@@ -9,7 +9,8 @@ A Yeoman generator for creating projects based on Angular, Firebase and Twitter 
 
 ## Features
 
-* An Angular 2 app generated with angular-cli
+* An **Angular 4** app generated with angular-cli (yes, although there is still angular2 in the name, that's actually 
+Angular 4 now)
 * Twitter Bootstrap with ng2-bootstrap
 * AngularFire2 and Firebase
 * An initial implementation of an authentication service (See auth-service)
@@ -27,38 +28,40 @@ on the home page for demo purposes.
 
 This generator is targeted to be used with Node >= 6.9.0 and NPM >= 3.0.0. You can check your version number with the command
 
-```
+```bash
 $ node --version && npm --version
+  v6.10.0
+  3.10.10
 ```
 
 ### Requirement Angular CLI
 
-To build and run this project, you will need Angular CLI. This version is compatible with @angular/cli rc2. If you have
+To build and run this project, you will need Angular CLI. This version is compatible with @angular/cli 1.0. If you have
 any previous instantiation of the Angular CLI, you should remove them.
 
-```
+```bash
 $ npm uninstall -g angular-cli # remove any previous angular-cli
 $ npm i -g @angular/cli
-$ ng --version # make sur you have the correct version of angular/cli
-    _                      _                 ____ _     ___
-   / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
-  / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
- / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
-/_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
-               |___/
-@angular/cli: 1.0.0-rc.2
-node: 6.10.0
-os: darwin x64
-@angular/common: 2.4.10
-@angular/compiler: 2.4.10
-@angular/core: 2.4.10
-@angular/forms: 2.4.10
-@angular/http: 2.4.10
-@angular/platform-browser: 2.4.10
-@angular/platform-browser-dynamic: 2.4.10
-@angular/router: 3.4.10
-@angular/compiler-cli: 2.4.10
-@angular/cli: 1.0.0-rc.2
+$ ng --version
+      _                      _                 ____ _     ___
+     / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+    / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
+   / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
+  /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+                 |___/
+  @angular/cli: 1.0.0
+  node: 6.10.0
+  os: darwin x64
+  @angular/common: 4.0.0
+  @angular/compiler: 4.0.0
+  @angular/core: 4.0.0
+  @angular/forms: 4.0.0
+  @angular/http: 4.0.0
+  @angular/platform-browser: 4.0.0
+  @angular/platform-browser-dynamic: 4.0.0
+  @angular/router: 4.0.0
+  @angular/cli: 1.0.0
+  @angular/compiler-cli: 4.0.0
 ```
 
 ### Steps to install
@@ -134,8 +137,16 @@ They are initially present in the home page of the application but can be moved 
 
 To run the project using Angular CLI, do the following
 
-```
+```bash
 $ ng serve
+  ** NG Live Development Server is running on http://localhost:4200 **
+  Hash: 541b798f948bd3bb21cb
+  Time: 18855ms
+  chunk    {0} main.bundle.js, main.bundle.js.map (main) 38.4 kB {2} [initial] [rendered]
+  chunk    {1} styles.bundle.js, styles.bundle.js.map (styles) 130 kB {3} [initial] [rendered]
+  chunk    {2} vendor.bundle.js, vendor.bundle.js.map (vendor) 4.25 MB [initial] [rendered]
+  chunk    {3} inline.bundle.js, inline.bundle.js.map (inline) 0 bytes [entry] [rendered]
+
 ```
 
 
