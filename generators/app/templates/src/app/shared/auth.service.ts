@@ -36,10 +36,13 @@ export class AuthService {
         });
     }
 
-    login(email: string, password: string) {
-        // console.log("login: ", email);
+    login(email: string, password: string): Observable<string> {
+        let result = new Subject<string>();
         this.initUserInfoSubject();
-        this.angularFireAuth.login({email: email, password: password});
+        this.angularFireAuth.login({email: email, password: password})
+            .then(() => result.next("success"))
+            .catch(err => result.error(err));
+        return result.asObservable();
     }
 
     private initUserInfoSubject() {
@@ -50,9 +53,13 @@ export class AuthService {
         return this.userInfoSubject.asObservable();
     }
 
-    logout() {
+    logout(): Observable<string> {
+        let result = new Subject<string>();
         this.initUserInfoSubject();
-        this.angularFireAuth.logout();
+        this.angularFireAuth.logout()
+            .then(() => result.next("success"))
+            .catch(err => result.error(err));
+        return result.asObservable();
     }
 
     isLoggedIn(): Observable<boolean> {
@@ -61,30 +68,31 @@ export class AuthService {
             // console.log("isLoggedIn: anonymous=" + ui.isAnonymous);
             isLoggedInBS.next(!ui.isAnonymous);
             isLoggedInBS.complete();
-            // setTimeout(() => {
-            // }, 0);
         });
         return isLoggedInBS;
     }
 
     updateDisplayName(displayName: string): Observable<string> {
         let result = new Subject<string>();
-        //noinspection TypeScriptUnresolvedFunction
         this.auth.updateProfile({displayName: displayName, photoURL: null}).then(a => {
-            result.next("success");
+            result.next("onSuccess");
         }).catch(err => result.error(err));
         return result;
     }
 
-    createUser(email: string, password: string, displayName: string) {
-        //noinspection TypeScriptUnresolvedFunction
+    createUser(email: string, password: string, displayName: string): Observable<string> {
+        let result = new Subject<string>();
         this.angularFireAuth.createUser({email: email, password: password})
-            .then(auth => auth.auth.updateProfile({displayName: displayName, photoURL: null}));
+            .then(auth => {
+                auth.auth.updateProfile({displayName: displayName, photoURL: null});
+                result.next("success");
+            })
+            .catch(err => result.error(err));
+        return result.asObservable();
     }
 
     updateEmail(email: string): Observable<string> {
         let result = new Subject<string>();
-        //noinspection TypeScriptUnresolvedFunction
         this.auth.updateEmail(email).then(a => {
             result.next("success");
         }).catch(err => result.error(err));
@@ -93,36 +101,33 @@ export class AuthService {
 
     updatePassword(password: string): Observable<string> {
         let result = new Subject<string>();
-        //noinspection TypeScriptUnresolvedFunction
         this.auth.updatePassword(password).then(a => {
             result.next("success");
         }).catch(err => result.error(err));
         return result.asObservable();
     }
 
-    sendPasswordResetEmail(email: string) {
-        this.firebaseAuth.sendPasswordResetEmail(email);
+    sendPasswordResetEmail(email: string): Observable<string> {
+        let result = new Subject<string>();
+        this.firebaseAuth.sendPasswordResetEmail(email)
+            .then(() => result.next("success"))
+            .catch(err => result.error(err));
+        return result;
     }
 
     loginViaProvider(provider: string): Observable<String> {
         let result = new Subject<string>();
         if (provider === "google") {
-            //noinspection TypeScriptUnresolvedFunction
             this.angularFireAuth
                 .login({provider: AuthProviders.Google, method: AuthMethods.Popup})
-                //noinspection TypeScriptUnresolvedFunction
-                .//noinspection TypeScriptUnresolvedFunction
-                then(auth => result.next("success"))
+                .then(auth => result.next("success"))
                 .catch(err => result.error(err));
             return result.asObservable();
         }
         else if (provider === "twitter") {
-            //noinspection TypeScriptUnresolvedFunction
             this.angularFireAuth
                 .login({provider: AuthProviders.Twitter, method: AuthMethods.Popup})
-                //noinspection TypeScriptUnresolvedFunction
-                .//noinspection TypeScriptUnresolvedFunction
-                then(auth => result.next("success"))
+                .then(auth => result.next("success"))
                 .catch(err => result.error(err));
             return result.asObservable();
         }

@@ -68,7 +68,7 @@ First, install [Yeoman](http://yeoman.io) and generator-angular2-firebase-bootst
 ```bash
 npm install -g yo
 npm install -g generator-angular2-firebase-bootstrap
-# If you want this generator to init a git repository for yoy
+# If you want this generator to init a git repository for you
 npm install -g generator-git-init
 ```
 

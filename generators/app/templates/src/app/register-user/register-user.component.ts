@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, EventEmitter, Output} from "@angular/core";
 import {AuthService} from "app/shared/auth.service";
 import {Observable} from "rxjs";
 import {FormGroup, AbstractControl, FormBuilder, Validators} from "@angular/forms";
@@ -14,6 +14,9 @@ export class RegisterUserComponent implements OnInit {
     name: AbstractControl;
     password: AbstractControl;
     password2: AbstractControl;
+
+    @Output() onSuccess = new EventEmitter();
+    @Output() onError = new EventEmitter();
 
     constructor(private authService: AuthService,
                 private fb: FormBuilder) {
@@ -39,10 +42,16 @@ export class RegisterUserComponent implements OnInit {
         return this.authService.isLoggedIn();
     }
 
-    onSubmit(value: any) {
+    onSubmit() {
         if (this.form.valid) {
-            this.authService.createUser(this.email.value, this.password.value, this.name.value);
-            this.form.reset();
+            this.authService.createUser(this.email.value, this.password.value, this.name.value)
+                .subscribe(
+                    () => {
+                        this.onSuccess.emit("success");
+                        this.form.reset();
+                    },
+                    err => this.onError.emit(err)
+                );
         }
     }
 
