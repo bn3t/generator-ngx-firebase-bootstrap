@@ -28,7 +28,7 @@ on the home page for demo purposes.
 
 This generator is targeted to be used with Node >= 6.9.0 and NPM >= 3.0.0. You can check your version number with the command
 
-```bash
+```shell
 $ node --version && npm --version
   v6.10.0
   3.10.10
@@ -39,7 +39,7 @@ $ node --version && npm --version
 To build and run this project, you will need Angular CLI. This version is compatible with @angular/cli 1.0. If you have
 any previous instantiation of the Angular CLI, you should remove them.
 
-```bash
+```shell
 $ npm uninstall -g angular-cli # remove any previous angular-cli
 $ npm i -g @angular/cli
 $ ng --version
@@ -68,17 +68,17 @@ $ ng --version
 
 First, install [Yeoman](http://yeoman.io) and generator-angular2-firebase-bootstrap using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
-```bash
-npm install -g yo
-npm install -g generator-angular2-firebase-bootstrap
+```shell
+$ npm install -g yo
+$ npm install -g generator-angular2-firebase-bootstrap
 # If you want this generator to init a git repository for you
-npm install -g generator-git-init
+$ npm install -g generator-git-init
 ```
 
 Then generate your new project:
 
-```bash
-yo angular2-firebase-bootstrap
+```shell
+$ yo angular2-firebase-bootstrap
 ```
 
 ## Features
@@ -137,7 +137,7 @@ They are initially present in the home page of the application but can be moved 
 
 To run the project using Angular CLI, do the following
 
-```bash
+```shell
 $ ng serve
   ** NG Live Development Server is running on http://localhost:4200 **
   Hash: 541b798f948bd3bb21cb
@@ -158,7 +158,7 @@ To deploy your application to Firebase Hosting you should follow the instruction
 
 In a nutshell:
 
-```bash
+```shell
 $ firebase init
 
 > Choose Hosting
@@ -169,14 +169,14 @@ $ firebase init
 
 Then build your application for production with AOT.
 
-```bash
-ng build --prod --aot
+```shell
+$ ng build --prod --aot
 ```
 
 Then deploy to Firebase.
 
-```bash
-firebase deploy
+```shell
+$ firebase deploy
 ```
 
 ## Angular 2 CLI Specifics
