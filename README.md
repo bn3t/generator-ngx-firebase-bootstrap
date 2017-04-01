@@ -6,6 +6,8 @@ A Yeoman generator for creating projects based on Angular, Firebase and Twitter 
 ![bootstrap-social-logo-220px](https://cloud.githubusercontent.com/assets/1102723/24071881/bca110f2-0bdc-11e7-933d-7ac4d972cee4.png) 
 ![firebase_16-logo-220px](https://cloud.githubusercontent.com/assets/1102723/24071871/a1a11446-0bdc-11e7-9161-399fd17f4829.png)
 
+This will be the last version of the project generator-angular2-firebase-bootstrap before it gets renamed to 
+generator-ngx-firebase-bootstrap with support of Angular 4 and beyond.
 
 ## Features
 
@@ -27,7 +29,7 @@ on the home page for demo purposes.
 
 This generator is targeted to be used with Node >= 6.9.0 and NPM >= 3.0.0. You can check your version number with the command
 
-```
+```shell
 $ node --version && npm --version
 ```
 
@@ -36,7 +38,7 @@ $ node --version && npm --version
 To build and run this project, you will need Angular CLI. This version is compatible with @angular/cli rc2. If you have
 any previous instantiation of the Angular CLI, you should remove them.
 
-```
+```shell
 $ npm uninstall -g angular-cli # remove any previous angular-cli
 $ npm i -g @angular/cli
 $ ng --version # make sur you have the correct version of angular/cli
@@ -46,8 +48,8 @@ $ ng --version # make sur you have the correct version of angular/cli
  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
 /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
                |___/
-@angular/cli: 1.0.0-rc.2
-node: 6.10.0
+@angular/cli: 1.0.0
+node: 6.10.1
 os: darwin x64
 @angular/common: 2.4.10
 @angular/compiler: 2.4.10
@@ -58,24 +60,24 @@ os: darwin x64
 @angular/platform-browser-dynamic: 2.4.10
 @angular/router: 3.4.10
 @angular/compiler-cli: 2.4.10
-@angular/cli: 1.0.0-rc.2
+@angular/cli: 1.0.0
 ```
 
 ### Steps to install
 
 First, install [Yeoman](http://yeoman.io) and generator-angular2-firebase-bootstrap using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
-```bash
-npm install -g yo
-npm install -g generator-angular2-firebase-bootstrap
+```shell
+$ npm install -g yo
+$ npm install -g generator-angular2-firebase-bootstrap
 # If you want this generator to init a git repository for you
-npm install -g generator-git-init
+$ npm install -g generator-git-init
 ```
 
 Then generate your new project:
 
-```bash
-yo angular2-firebase-bootstrap
+```shell
+$ yo angular2-firebase-bootstrap
 ```
 
 ## Features
@@ -134,7 +136,7 @@ They are initially present in the home page of the application but can be moved 
 
 To run the project using Angular CLI, do the following
 
-```
+```shell
 $ ng serve
 ```
 
@@ -147,7 +149,7 @@ To deploy your application to Firebase Hosting you should follow the instruction
 
 In a nutshell:
 
-```bash
+```shell
 $ firebase init
 
 > Choose Hosting
@@ -158,14 +160,14 @@ $ firebase init
 
 Then build your application for production with AOT.
 
-```bash
-ng build --prod --aot
+```shell
+$ ng build --prod --aot
 ```
 
 Then deploy to Firebase.
 
-```bash
-firebase deploy
+```shell
+$ firebase deploy
 ```
 
 ## Angular 2 CLI Specifics
