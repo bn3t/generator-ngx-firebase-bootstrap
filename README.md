@@ -1,4 +1,4 @@
-# generator-angular2-firebase-bootstrap [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-ngx-firebase-bootstrap [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 
 A Yeoman generator for creating projects based on Angular, Firebase and Twitter Bootstrap.
 
@@ -66,11 +66,11 @@ $ ng --version
 
 ### Steps to install
 
-First, install [Yeoman](http://yeoman.io) and generator-angular2-firebase-bootstrap using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and generator-ngx-firebase-bootstrap using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```shell
 $ npm install -g yo
-$ npm install -g generator-angular2-firebase-bootstrap
+$ npm install -g generator-ngx-firebase-bootstrap
 # If you want this generator to init a git repository for you
 $ npm install -g generator-git-init
 ```
@@ -78,7 +78,7 @@ $ npm install -g generator-git-init
 Then generate your new project:
 
 ```shell
-$ yo angular2-firebase-bootstrap
+$ yo ngx-firebase-bootstrap
 ```
 
 ## Features
@@ -217,9 +217,9 @@ To get more help on the `angular-cli` use `ng --help` or go check out the [Angul
 Apache-2.0 © [Bernard Niset]()
 
 
-[npm-image]: https://badge.fury.io/js/generator-angular2-firebase-bootstrap.svg
-[npm-url]: https://npmjs.org/package/generator-angular2-firebase-bootstrap
-[travis-image]: https://travis-ci.org/bn3t/generator-angular2-firebase-bootstrap.svg?branch=master
-[travis-url]: https://travis-ci.org/bn3t/generator-angular2-firebase-bootstrap
-[daviddm-image]: https://david-dm.org/bn3t/generator-angular2-firebase-bootstrap.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/bn3t/generator-angular2-firebase-bootstrap
+[npm-image]: https://badge.fury.io/js/generator-ngx-firebase-bootstrap.svg
+[npm-url]: https://npmjs.org/package/generator-ngx-firebase-bootstrap
+[travis-image]: https://travis-ci.org/bn3t/generator-ngx-firebase-bootstrap.svg?branch=master
+[travis-url]: https://travis-ci.org/bn3t/generator-ngx-firebase-bootstrap
+[daviddm-image]: https://david-dm.org/bn3t/generator-ngx-firebase-bootstrap.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/bn3t/generator-ngx-firebase-bootstrap
