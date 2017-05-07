@@ -3,8 +3,10 @@ import {NgModule} from "@angular/core";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {AppComponent} from "./app.component";
-import {authConfig, firebaseConfig} from "environments/firebaseConfig";
-import {AngularFireModule} from "angularfire2";
+import {firebaseConfig} from "environments/firebaseConfig";
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import {AuthService} from "app/shared/auth.service";
 import {LoginUserComponent} from "app/login-user/login-user.component";
 import {DisplayUserComponent} from "app/display-user/display-user.component";
@@ -26,7 +28,9 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
         ReactiveFormsModule,
         HttpModule,
         AlertModule.forRoot(),
-        AngularFireModule.initializeApp(firebaseConfig, authConfig)
+        AngularFireModule.initializeApp(firebaseConfig, "<%= name %>"),
+        AngularFireDatabaseModule,
+        AngularFireAuthModule
     ],
     providers: [AuthService],
     bootstrap: [AppComponent]
