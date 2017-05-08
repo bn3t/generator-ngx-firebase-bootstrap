@@ -1,7 +1,7 @@
 {
   "name": "generator-ngx-firebase-bootstrap",
   "version": "2.0.0",
-  "description": "Generator for Angular 2 - Firebase - Bootstrap projects",
+  "description": "Generator for Angular - Firebase - Bootstrap projects",
   "homepage": "",
   "author": {
     "name": "Bernard Niset"
