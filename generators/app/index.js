@@ -10,7 +10,7 @@ module.exports = class extends Generator {
     prompting() {
         // Have Yeoman greet the user.
         this.log(yosay(
-            'Welcome to the laudable ' + chalk.red('angular2-firebase-bootstrap') + ' generator!'
+            'Welcome to the laudable ' + chalk.red('ngx-firebase-bootstrap') + ' generator!'
         ));
 
         var prompts = [
@@ -61,7 +61,7 @@ module.exports = class extends Generator {
     configuring() {
         if(this.props.initGit) {
             this.composeWith(require.resolve('generator-git-init'),
-                { commit: 'Initial commit by angular2-firebase-bootstrap generator' });
+                { commit: 'Initial commit by ngx-firebase-bootstrap generator' });
         }
     }
 

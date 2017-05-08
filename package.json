@@ -1,7 +1,7 @@
 {
-  "name": "generator-angular2-firebase-bootstrap",
-  "version": "1.2.0",
-  "description": "Generator for Angular 2 - Firebase - Bootstrap projects",
+  "name": "generator-ngx-firebase-bootstrap",
+  "version": "2.0.0",
+  "description": "Generator for Angular - Firebase - Bootstrap projects",
   "homepage": "",
   "author": {
     "name": "Bernard Niset"
@@ -42,7 +42,7 @@
       "mocha": true
     }
   },
-  "repository": "bn3t/generator-angular2-firebase-bootstrap",
+  "repository": "bn3t/generator-ngx-firebase-bootstrap",
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp"

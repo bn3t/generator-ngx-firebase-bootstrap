@@ -17,7 +17,7 @@
             <ul class="list-unstyled">
                 <li *ngIf="email.valid || email.pristine">Enter your email address</li>
                 <li *ngIf="email.dirty && email.hasError('required')">An email address is required</li>
-                <li *ngIf="email.dirty && email.hasError('pattern')">Please enter a valid email address</li>
+                <li *ngIf="email.dirty && email.hasError('email')">Please enter a valid email address</li>
             </ul>
         </div>
     </div>

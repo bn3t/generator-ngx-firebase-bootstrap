@@ -2,13 +2,13 @@
     <div class="col-md-6 col-md-offset-3">
         <div class="panel panel-default">
             <div class="panel-heading">User Information</div>
-            <ul class="list-group">
-                <li class="list-group-item">Email: {{(currentUser()|async).email}}</li>
-                <li class="list-group-item">Display Name: {{(currentUser()|async).displayName}}</li>
-                <li class="list-group-item">Uid: {{(currentUser()|async).uid}}</li>
-                <li class="list-group-item">Provider Id: {{(currentUser()|async).providerId}}</li>
-                <li class="list-group-item" *ngIf="(currentUser()|async).photoURL"><img
-                        [src]="(currentUser()|async).photoURL"/></li>
+            <ul class="list-group" *ngIf="currentUser() | async as user">
+                <li class="list-group-item">Email: {{user.email}}</li>
+                <li class="list-group-item">Display Name: {{user.displayName}}</li>
+                <li class="list-group-item">Uid: {{user.uid}}</li>
+                <li class="list-group-item">Provider Id: {{user.providerId}}</li>
+                <li class="list-group-item" *ngIf="user.photoURL"><img
+                        [src]="user.photoURL"/></li>
             </ul>
         </div>
     </div>

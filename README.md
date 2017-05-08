@@ -1,4 +1,4 @@
-# generator-angular2-firebase-bootstrap [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-ngx-firebase-bootstrap [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 
 A Yeoman generator for creating projects based on Angular, Firebase and Twitter Bootstrap.
 
@@ -6,12 +6,11 @@ A Yeoman generator for creating projects based on Angular, Firebase and Twitter 
 ![bootstrap-social-logo-220px](https://cloud.githubusercontent.com/assets/1102723/24071881/bca110f2-0bdc-11e7-933d-7ac4d972cee4.png) 
 ![firebase_16-logo-220px](https://cloud.githubusercontent.com/assets/1102723/24071871/a1a11446-0bdc-11e7-9161-399fd17f4829.png)
 
-This will be the last version of the project generator-angular2-firebase-bootstrap before it gets renamed to 
-generator-ngx-firebase-bootstrap with support of Angular 4 and beyond.
 
 ## Features
 
-* An Angular 2 app generated with angular-cli
+* An **Angular 4** app generated with angular-cli (yes, although there is still angular2 in the name, that's actually 
+Angular 4 now)
 * Twitter Bootstrap with ng2-bootstrap
 * AngularFire2 and Firebase
 * An initial implementation of an authentication service (See auth-service)
@@ -31,45 +30,47 @@ This generator is targeted to be used with Node >= 6.9.0 and NPM >= 3.0.0. You c
 
 ```shell
 $ node --version && npm --version
+  v6.10.0
+  3.10.10
 ```
 
 ### Requirement Angular CLI
 
-To build and run this project, you will need Angular CLI. This version is compatible with @angular/cli rc2. If you have
+To build and run this project, you will need Angular CLI. This version is compatible with @angular/cli 1.0. If you have
 any previous instantiation of the Angular CLI, you should remove them.
 
 ```shell
 $ npm uninstall -g angular-cli # remove any previous angular-cli
 $ npm i -g @angular/cli
-$ ng --version # make sur you have the correct version of angular/cli
-    _                      _                 ____ _     ___
-   / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
-  / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
- / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
-/_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
-               |___/
-@angular/cli: 1.0.0
-node: 6.10.1
-os: darwin x64
-@angular/common: 2.4.10
-@angular/compiler: 2.4.10
-@angular/core: 2.4.10
-@angular/forms: 2.4.10
-@angular/http: 2.4.10
-@angular/platform-browser: 2.4.10
-@angular/platform-browser-dynamic: 2.4.10
-@angular/router: 3.4.10
-@angular/compiler-cli: 2.4.10
-@angular/cli: 1.0.0
+$ ng --version
+      _                      _                 ____ _     ___
+     / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+    / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
+   / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
+  /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+                 |___/
+  @angular/cli: 1.0.0
+  node: 6.10.0
+  os: darwin x64
+  @angular/common: 4.0.0
+  @angular/compiler: 4.0.0
+  @angular/core: 4.0.0
+  @angular/forms: 4.0.0
+  @angular/http: 4.0.0
+  @angular/platform-browser: 4.0.0
+  @angular/platform-browser-dynamic: 4.0.0
+  @angular/router: 4.0.0
+  @angular/cli: 1.0.0
+  @angular/compiler-cli: 4.0.0
 ```
 
 ### Steps to install
 
-First, install [Yeoman](http://yeoman.io) and generator-angular2-firebase-bootstrap using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and generator-ngx-firebase-bootstrap using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```shell
 $ npm install -g yo
-$ npm install -g generator-angular2-firebase-bootstrap
+$ npm install -g generator-ngx-firebase-bootstrap
 # If you want this generator to init a git repository for you
 $ npm install -g generator-git-init
 ```
@@ -77,7 +78,7 @@ $ npm install -g generator-git-init
 Then generate your new project:
 
 ```shell
-$ yo angular2-firebase-bootstrap
+$ yo ngx-firebase-bootstrap
 ```
 
 ## Features
@@ -101,7 +102,7 @@ provider that can handle several types of authentication.
 ### Steps to scaffold a new project
 
 1. Create a project folder and enter it: `mkdir myproject && cd $_`
-2. Generate project: `yo angular2-firebase-bootstrap`
+2. Generate project: `yo ngx-firebase-bootstrap`
 
 The generator will ask you a few information on your Firebase project:
 
@@ -138,6 +139,14 @@ To run the project using Angular CLI, do the following
 
 ```shell
 $ ng serve
+  ** NG Live Development Server is running on http://localhost:4200 **
+  Hash: 541b798f948bd3bb21cb
+  Time: 18855ms
+  chunk    {0} main.bundle.js, main.bundle.js.map (main) 38.4 kB {2} [initial] [rendered]
+  chunk    {1} styles.bundle.js, styles.bundle.js.map (styles) 130 kB {3} [initial] [rendered]
+  chunk    {2} vendor.bundle.js, vendor.bundle.js.map (vendor) 4.25 MB [initial] [rendered]
+  chunk    {3} inline.bundle.js, inline.bundle.js.map (inline) 0 bytes [entry] [rendered]
+
 ```
 
 
@@ -208,9 +217,9 @@ To get more help on the `angular-cli` use `ng --help` or go check out the [Angul
 Apache-2.0 © [Bernard Niset]()
 
 
-[npm-image]: https://badge.fury.io/js/generator-angular2-firebase-bootstrap.svg
-[npm-url]: https://npmjs.org/package/generator-angular2-firebase-bootstrap
-[travis-image]: https://travis-ci.org/bn3t/generator-angular2-firebase-bootstrap.svg?branch=master
-[travis-url]: https://travis-ci.org/bn3t/generator-angular2-firebase-bootstrap
-[daviddm-image]: https://david-dm.org/bn3t/generator-angular2-firebase-bootstrap.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/bn3t/generator-angular2-firebase-bootstrap
+[npm-image]: https://badge.fury.io/js/generator-ngx-firebase-bootstrap.svg
+[npm-url]: https://npmjs.org/package/generator-ngx-firebase-bootstrap
+[travis-image]: https://travis-ci.org/bn3t/generator-ngx-firebase-bootstrap.svg?branch=master
+[travis-url]: https://travis-ci.org/bn3t/generator-ngx-firebase-bootstrap
+[daviddm-image]: https://david-dm.org/bn3t/generator-ngx-firebase-bootstrap.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/bn3t/generator-ngx-firebase-bootstrap
