@@ -9,6 +9,7 @@ import {Router} from "@angular/router";
     styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
+    private title = 'app works! - <%= name %>';
 
     constructor(private authService: AuthService, private router: Router) {
     }
