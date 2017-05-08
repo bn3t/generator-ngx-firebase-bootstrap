@@ -8,16 +8,13 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['']">Home</a>
-                </li>
-                <!--<li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['register']">Register</a></li>-->
-                <!--<li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['reset-password']">Reset Password</a></li>-->
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['']">Home</a></li>
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['dashboard']" *ngIf="(isLoggedIn()|async)">Dashboard</a></li>
                 <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a
-                        [routerLink]="['all-in-one']">All In One</a></li>
-                <!--<li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a (click)="logout()" class="nav">Logout</a></li>-->
+                        [routerLink]="['all-in-one']" *ngIf="!(isLoggedIn()|async)">All In One</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li *ngIf="(isLoggedIn()|async)">{{(currentUser()|async).email}}</li>
+                <li *ngIf="(isLoggedIn()|async)" class="navbar-text">{{(currentUser()|async).email}}</li>
                 <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="!(isLoggedIn()|async)"><a
                         [routerLink]="['login']">Login</a></li>
                 <li *ngIf="(isLoggedIn()|async)"><a (click)="logout()" href="#">Logout</a></li>
@@ -28,6 +25,7 @@
 
 
 <div class="container">
+<<<<<<< HEAD
     <h1>
         {{title}}
     </h1>
@@ -57,3 +55,7 @@
         </div>
     </ng-template>
 </div>
+=======
+    <router-outlet></router-outlet>
+</div>
+>>>>>>> Improved router version implementation.

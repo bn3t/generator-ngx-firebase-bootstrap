@@ -10,7 +10,6 @@ import {UserInfo} from "app/shared/user-info";
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    private title = 'app works! - <%= name %>';
     private alertType = null;
     private alertMessage = "";
 
