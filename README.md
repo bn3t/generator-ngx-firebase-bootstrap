@@ -102,7 +102,7 @@ provider that can handle several types of authentication.
 ### Steps to scaffold a new project
 
 1. Create a project folder and enter it: `mkdir myproject && cd $_`
-2. Generate project: `yo angular2-firebase-bootstrap`
+2. Generate project: `yo ngx-firebase-bootstrap`
 
 The generator will ask you a few information on your Firebase project:
 
