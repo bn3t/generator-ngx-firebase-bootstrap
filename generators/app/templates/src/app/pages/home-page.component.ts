@@ -1,7 +1,8 @@
 import {Component} from "@angular/core";
 import {AuthService} from "app/shared/auth.service";
-import {Observable} from "rxjs";
+import {Observable, BehaviorSubject} from "rxjs";
 import {Router} from "@angular/router";
+import { UserInfo } from "app/shared/user-info";
 
 @Component({
     selector: 'app-home-page',
@@ -9,13 +10,14 @@ import {Router} from "@angular/router";
     styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
-    private title = 'app works! - <%= name %>';
+    userInfo: Observable<UserInfo>;
+    isLoggedIn = new BehaviorSubject(false);
 
     constructor(private authService: AuthService, private router: Router) {
-    }
-
-    isLoggedIn(): Observable<boolean> {
-        return this.authService.isLoggedIn();
+        this.userInfo = authService.userInfo;
+        this.userInfo
+            .map(userInfo => !userInfo.isAnonymous)
+            .subscribe(this.isLoggedIn);
     }
 
     navigateToLogin(e) {

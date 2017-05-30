@@ -3,15 +3,22 @@ import {User} from "firebase";
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import {UserInfo} from "./user-info";
-import {Observable, Subject, ReplaySubject, AsyncSubject} from "rxjs";
+import { Observable, Subject, BehaviorSubject } from "rxjs";
 
 @Injectable()
 export class AuthService {
-    private userInfoSubject: ReplaySubject<UserInfo>;
+    static UNKNOWN_USER = {
+        isAnonymous: true,
+        email: null,
+        displayName: null,
+        providerId: null,
+        uid: null
+    };
+
+    userInfo = new BehaviorSubject<UserInfo>(AuthService.UNKNOWN_USER);
     private user: User;
     
     constructor(private angularFireAuth: AngularFireAuth) {
-        this.initUserInfoSubject();
         this.angularFireAuth.authState.subscribe(user => {
             // console.log("user: ", JSON.stringify(user));
             this.user = user;
@@ -28,30 +35,25 @@ export class AuthService {
                 this.user = null;
                 userInfo.isAnonymous = true;
             }
-            this.userInfoSubject.next(userInfo);
+            this.userInfo.next(userInfo);
         });
     }
 
     login(email: string, password: string): Observable<string> {
         let result = new Subject<string>();
-        this.initUserInfoSubject();
         this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
             .then(() => result.next("success"))
             .catch(err => result.error(err));
         return result.asObservable();
     }
 
-    private initUserInfoSubject() {
-        this.userInfoSubject = new ReplaySubject<UserInfo>(1);
-    }
-
     currentUser(): Observable<UserInfo> {
-        return this.userInfoSubject.asObservable();
+        return this.userInfo.asObservable();
     }
 
     logout(): Observable<string> {
         let result = new Subject<string>();
-        this.initUserInfoSubject();
+        this.userInfo.next(AuthService.UNKNOWN_USER);
         this.angularFireAuth.auth.signOut()
             .then(() => result.next("success"))
             .catch(err => result.error(err));
@@ -59,13 +61,7 @@ export class AuthService {
     }
 
     isLoggedIn(): Observable<boolean> {
-        let isLoggedInBS = new AsyncSubject<boolean>();
-        this.userInfoSubject.subscribe(ui => {
-            // console.log("isLoggedIn: anonymous=" + ui.isAnonymous);
-            isLoggedInBS.next(!ui.isAnonymous);
-            isLoggedInBS.complete();
-        });
-        return isLoggedInBS;
+        return this.userInfo.map(userInfo => !userInfo.isAnonymous);
     }
 
     updateDisplayName(displayName: string): Observable<string> {
