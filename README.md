@@ -1,6 +1,7 @@
 # generator-ngx-firebase-bootstrap [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 
-A Yeoman generator for creating projects based on Angular, Firebase and Twitter Bootstrap.
+A Yeoman generator for creating projects based on Angular, Firebase and Twitter Bootstrap. This generator provides basic integration 
+which those tools and offers a framework for authentication right out of the box.
 
 ![angular-220px](https://cloud.githubusercontent.com/assets/1102723/24071875/b0571ecc-0bdc-11e7-940f-dc042b0578ef.png) 
 ![bootstrap-social-logo-220px](https://cloud.githubusercontent.com/assets/1102723/24071881/bca110f2-0bdc-11e7-933d-7ac4d972cee4.png) 
@@ -9,8 +10,7 @@ A Yeoman generator for creating projects based on Angular, Firebase and Twitter 
 
 ## Features
 
-* An **Angular 4** app generated with angular-cli (yes, although there is still angular2 in the name, that's actually 
-Angular 4 now)
+* An **Angular 4** app generated with angular-cli
 * Twitter Bootstrap with ng2-bootstrap
 * AngularFire2 and Firebase
 * An initial implementation of an authentication service (See auth-service)
@@ -18,9 +18,16 @@ Angular 4 now)
 * One component to login using username/password, Google or Twitter
 * One component to allow a user to register himself with username/password.
 * One component for password reset (when using username/password).
+* An Angular Router setup to allow navigation between the following pages of your application:
+  * An All-in-one page to show all above components
+  * A Home page that shows user information when logged in
+  * A Dashboard page as an example of a Guarded page in your application (only available when logged in)
+  * A Login page which shows the login component and the reset password component
+  * A Register page which shows the register component
+  * A LoggedInGuard to use in your router configuration for page that requires the user to be logged in
 
-It is up to you to use these component in your own pages. When the project is scaffolded they all included
-on the home page for demo purposes.
+Now the router setup allows navigation between the pages and the components. You will just need to customize the Home page
+and add more pages to your own needs.
 
 ## Installation
 
@@ -30,8 +37,8 @@ This generator is targeted to be used with Node >= 6.9.0 and NPM >= 3.0.0. You c
 
 ```shell
 $ node --version && npm --version
-  v6.10.0
-  3.10.10
+v6.10.3
+3.10.10
 ```
 
 ### Requirement Angular CLI
@@ -43,25 +50,25 @@ any previous instantiation of the Angular CLI, you should remove them.
 $ npm uninstall -g angular-cli # remove any previous angular-cli
 $ npm i -g @angular/cli
 $ ng --version
-      _                      _                 ____ _     ___
-     / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
-    / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
-   / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
-  /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
-                 |___/
-  @angular/cli: 1.0.0
-  node: 6.10.0
-  os: darwin x64
-  @angular/common: 4.0.0
-  @angular/compiler: 4.0.0
-  @angular/core: 4.0.0
-  @angular/forms: 4.0.0
-  @angular/http: 4.0.0
-  @angular/platform-browser: 4.0.0
-  @angular/platform-browser-dynamic: 4.0.0
-  @angular/router: 4.0.0
-  @angular/cli: 1.0.0
-  @angular/compiler-cli: 4.0.0
+    _                      _                 ____ _     ___
+   / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+  / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
+ / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
+/_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+               |___/
+@angular/cli: 1.0.1
+node: 6.10.3
+os: darwin x64
+@angular/common: 4.1.0
+@angular/compiler: 4.1.0
+@angular/core: 4.1.0
+@angular/forms: 4.1.0
+@angular/http: 4.1.0
+@angular/platform-browser: 4.1.0
+@angular/platform-browser-dynamic: 4.1.0
+@angular/router: 4.1.0
+@angular/cli: 1.0.1
+@angular/compiler-cli: 4.1.0
 ```
 
 ### Steps to install
@@ -81,14 +88,6 @@ Then generate your new project:
 $ yo ngx-firebase-bootstrap
 ```
 
-## Features
-
-* An Angular 2 generated with angular-cli.
-* Bootstrap with ng2-bootstrap
-* AngularFire2 for Firebase
-* An initial implementation of an authentication service (See auth-service)
-* One ready to use component to display user information (from Firebase)
-* One ready to use component to login using username/password, Google or Twitter.
 
 ## Getting Started
 
@@ -96,7 +95,7 @@ You should have your Firebase project created in Firebase. For this, go to the
 [Firebase Console](https://console.firebase.google.com/) and create a new project, in the newly 
 created project go to 'Add Firebase to your web app'. This option will give you all the 
 credential information you will need when generating your project. For authentication to work, you 
-should enable the Authentication methods you want to use. The seeded project contains a auth-service 
+should enable the Authentication methods you want to use (See [Authenticate Using Google Sign-In with JavaScript](https://firebase.google.com/docs/auth/web/google-signin)). The seeded project contains a auth-service 
 provider that can handle several types of authentication.
 
 ### Steps to scaffold a new project
@@ -117,7 +116,7 @@ in those values in the firebaseConfig.ts file in the generated project.
 
 The generator will also optionally run `git init` on your project and do an initial commit for you.
 
-## Firebase Authentication example
+## Squeleton of the generated app
 
 The generated project will contain example code to authenticate to your project in Firebase. 
 For this to actually work, you will have to enable authentication in your firebase project. 
@@ -128,14 +127,49 @@ Go to [Firebase Authentication Documentation](https://firebase.google.com/docs/a
 enable authentication for your project in Firebase. Please note that to use Email/Password authentication, 
 so you will have to register users yourself via the Firebase Console.
 
-The generated project will contain 3 ready to be used components for login, register and display user information. 
-They are initially present in the home page of the application but can be moved elsewhere at your convenience.
+The generated project will contain the following pages to help you start with your application featuring a basic router 
+setup.
 
-![Screenshot](https://cloud.githubusercontent.com/assets/1102723/24080474/38f75666-0ca0-11e7-8783-66ad793c9460.png)
+### Navigation Bar
+
+There is a Bootstrap base navigation bar provided as an example.
+
+![Navigation Bar](https://user-images.githubusercontent.com/1102723/27261010-9900d58c-543a-11e7-9c05-ba194e499f31.png)
+
+### Login Page
+
+The Home (when not already logged in) has a link to the Login Page which allows to Login via Twitter, Google or Email/Password. The Login page also has the Reset Password component.
+
+![Login Page](https://user-images.githubusercontent.com/1102723/27261022-f6852f14-543a-11e7-9a04-8bfd2f16ec53.png)
+
+### Register Page
+
+Also accessible from the Home page, the Register page shows the register component to allow ... guess what.
+
+![Screenshot](https://user-images.githubusercontent.com/1102723/27261046-73876626-543b-11e7-8859-c8a4479d6c21.png)
+
+### Home Page
+
+When not logged in the Home Pages shows links to the Login and Register pages, otherwise, it shows user information as shown below.
+
+![Home Page when Logged In](https://user-images.githubusercontent.com/1102723/27261122-d3ade218-543c-11e7-92bc-daf42a0d08b4.png)
+
+### Dashboard Page
+
+The Dashboard page is an example of a proteted page in your application. The page is protected by the LoggedInGuard that 
+checks the user is logged in before allowing access.
+
+![Dashboard Page](https://user-images.githubusercontent.com/1102723/27261123-d8725036-543c-11e7-9f7d-0a5f6ae97e5e.png)
+
+### All-in-one Page
+
+This page is available when not logged in and shows all available components in one convenient page.
+
+![All-in-one Page](https://user-images.githubusercontent.com/1102723/27261168-744afe22-543d-11e7-90da-d63de4347af2.png)
 
 ## Run the application
 
-To run the project using Angular CLI, do the following
+To run the project using Angular CLI, do the following:
 
 ```shell
 $ ng serve
@@ -164,7 +198,7 @@ $ firebase init
 > Choose Hosting
 > Accept default database.rules.json
 > Choose 'dist' as your public directory
-> Enter 'no' for rewrite all urls to index.html
+> Enter 'yes' for rewrite all urls to index.html
 ```
 
 Then build your application for production with AOT.
@@ -181,36 +215,8 @@ $ firebase deploy
 
 ## Angular 2 CLI Specifics
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.21. It currently runs fine with angular-cli version 1.0.0-beta.28.3. It also supports AOT.
-
-### Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-### Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.
-
-### Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-### Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-### Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-### Deploying to Github Pages
-
-Run `ng github-pages:deploy` to deploy to Github Pages.
-
-### Further help
-
-To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
+This project was generated with [Angular Cli](https://github.com/angular/angular-cli/wiki). The project is still compatible
+with the CLI so you can use it to run your Development server, add more components, etc.
 
 ### License
 
