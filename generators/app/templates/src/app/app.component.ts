@@ -1,6 +1,8 @@
 import {Component} from "@angular/core";
 import {AuthService} from "app/shared/auth.service";
-import {Observable} from "rxjs";
+import { Observable, BehaviorSubject } from "rxjs";
+import {Router} from "@angular/router";
+import {UserInfo} from "app/shared/user-info";
 
 @Component({
     selector: 'app-root',
@@ -8,15 +10,21 @@ import {Observable} from "rxjs";
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    private title = 'app works! - <%= name %>';
     private alertType = null;
     private alertMessage = "";
+    private isLoggedIn = new BehaviorSubject<boolean>(false);
 
-    constructor(private authService: AuthService) {
+    constructor(private authService: AuthService, private router: Router) {
+        this.authService.isLoggedIn().subscribe(this.isLoggedIn);
     }
 
-    isLoggedIn(): Observable<boolean> {
-        return this.authService.isLoggedIn();
+    currentUser(): Observable<UserInfo> {
+        return this.authService.currentUser();
+    }
+
+    logout() {
+        this.authService.logout();
+        this.router.navigate(['/']);
     }
 
     onResetPasswordSuccess() {

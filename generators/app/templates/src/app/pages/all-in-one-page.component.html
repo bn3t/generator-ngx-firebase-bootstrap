@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>
+    {{title}}
+  </h1>
+  <div class="row" *ngIf="isLoggedIn|async">
+    <app-display-user></app-display-user>
+  </div>
+  <div class="row">
+    <div *ngIf="!(isLoggedIn|async)" class="col-md-4 col-md-offset-1">
+      <app-login-user></app-login-user>
+    </div>
+    <div *ngIf="!(isLoggedIn|async)" class="col-md-4 col-md-offset-1">
+      <app-register-user></app-register-user>
+    </div>
+  </div>
+  <div class="row">
+    <div *ngIf="!(isLoggedIn|async)" class="col-md-4 col-md-offset-1">
+      <app-reset-password></app-reset-password>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<h1>
+    {{title}}
+</h1>
+
+<div class="row" *ngIf="isLoggedIn|async">
+    <app-display-user></app-display-user>
+</div>
+<div class="row" *ngIf="!(isLoggedIn|async)">
+    <div class="col-md-6">
+        <p>You need to <a (click)="navigateToLogin($event)" href="#">Log In</a> or <a (click)="navigateToRegister($event)" href="#">Register</a></p>
+    </div>
+</div>

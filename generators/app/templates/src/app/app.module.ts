@@ -12,7 +12,23 @@ import {LoginUserComponent} from "app/login-user/login-user.component";
 import {DisplayUserComponent} from "app/display-user/display-user.component";
 import {RegisterUserComponent} from "app/register-user/register-user.component";
 import {AlertModule} from "ng2-bootstrap";
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import {ResetPasswordComponent} from "./reset-password/reset-password.component";
+import {Routes, RouterModule} from "@angular/router";
+import {HomePageComponent} from "./pages/home-page.component";
+import {RegisterPageComponent} from "./pages/register-page.component";
+import {AllInOnePageComponent} from "./pages/all-in-one-page.component";
+import {LoginPageComponent} from "./pages/login-page.component";
+import { LoggedInGuard } from "app/shared/logged-in-guard";
+import { DashboardPageComponent } from './pages/dashboard-page.component';
+
+const routes: Routes = [
+    { path: 'register', component: RegisterPageComponent },
+    { path: 'all-in-one', component: AllInOnePageComponent },
+    { path: 'reset-password', component: ResetPasswordComponent },
+    { path: 'login', component: LoginPageComponent },
+    { path: 'dashboard', component: DashboardPageComponent, canActivate: [LoggedInGuard] },
+    { path: '', component: HomePageComponent }
+];
 
 @NgModule({
     declarations: [
@@ -20,7 +36,12 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
         DisplayUserComponent,
         LoginUserComponent,
         RegisterUserComponent,
-        ResetPasswordComponent
+        ResetPasswordComponent,
+        HomePageComponent,
+        RegisterPageComponent,
+        AllInOnePageComponent,
+        LoginPageComponent,
+        DashboardPageComponent
     ],
     imports: [
         BrowserModule,
@@ -30,9 +51,10 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
         AlertModule.forRoot(),
         AngularFireModule.initializeApp(firebaseConfig, "<%= name %>"),
         AngularFireDatabaseModule,
-        AngularFireAuthModule
+        AngularFireAuthModule,
+        RouterModule.forRoot(routes)
     ],
-    providers: [AuthService],
+    providers: [AuthService, LoggedInGuard],
     bootstrap: [AppComponent]
 })
 export class AppModule {

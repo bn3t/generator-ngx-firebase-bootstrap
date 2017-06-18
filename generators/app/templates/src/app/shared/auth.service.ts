@@ -1,23 +1,30 @@
 import {Injectable, Inject} from "@angular/core";
-import {User} from "firebase";
+import * as firebase from 'firebase/app';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import {UserInfo} from "./user-info";
-import {Observable, Subject, ReplaySubject, AsyncSubject} from "rxjs";
+import { Observable, Subject, BehaviorSubject } from "rxjs";
 
 @Injectable()
 export class AuthService {
-    private userInfoSubject: ReplaySubject<UserInfo>;
-    private user: User;
-    
+    static UNKNOWN_USER = {
+        isAnonymous: true,
+        email: null,
+        displayName: null,
+        providerId: null,
+        uid: null
+    };
+
+    userInfo = new BehaviorSubject<UserInfo>(AuthService.UNKNOWN_USER);
+    private user: firebase.User;
+
     constructor(private angularFireAuth: AngularFireAuth) {
-        this.initUserInfoSubject();
         this.angularFireAuth.authState.subscribe(user => {
             // console.log("user: ", JSON.stringify(user));
             this.user = user;
             let userInfo = new UserInfo();
             if (user != null) {
-                
+
                 userInfo.isAnonymous = user.isAnonymous;
                 userInfo.email = user.email;
                 userInfo.displayName = user.displayName;
@@ -28,30 +35,25 @@ export class AuthService {
                 this.user = null;
                 userInfo.isAnonymous = true;
             }
-            this.userInfoSubject.next(userInfo);
+            this.userInfo.next(userInfo);
         });
     }
 
     login(email: string, password: string): Observable<string> {
         let result = new Subject<string>();
-        this.initUserInfoSubject();
         this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
             .then(() => result.next("success"))
             .catch(err => result.error(err));
         return result.asObservable();
     }
 
-    private initUserInfoSubject() {
-        this.userInfoSubject = new ReplaySubject<UserInfo>(1);
-    }
-
     currentUser(): Observable<UserInfo> {
-        return this.userInfoSubject.asObservable();
+        return this.userInfo.asObservable();
     }
 
     logout(): Observable<string> {
         let result = new Subject<string>();
-        this.initUserInfoSubject();
+        this.userInfo.next(AuthService.UNKNOWN_USER);
         this.angularFireAuth.auth.signOut()
             .then(() => result.next("success"))
             .catch(err => result.error(err));
@@ -59,13 +61,7 @@ export class AuthService {
     }
 
     isLoggedIn(): Observable<boolean> {
-        let isLoggedInBS = new AsyncSubject<boolean>();
-        this.userInfoSubject.subscribe(ui => {
-            // console.log("isLoggedIn: anonymous=" + ui.isAnonymous);
-            isLoggedInBS.next(!ui.isAnonymous);
-            isLoggedInBS.complete();
-        });
-        return isLoggedInBS;
+        return this.userInfo.map(userInfo => !userInfo.isAnonymous);
     }
 
     updateDisplayName(displayName: string): Observable<string> {
@@ -90,7 +86,7 @@ export class AuthService {
                 result.next("success");
             })
             .catch(err => result.error(err));
-        
+
         return result.asObservable();
     }
 
@@ -123,19 +119,17 @@ export class AuthService {
     loginViaProvider(provider: string): Observable<String> {
         let result = new Subject<string>();
         if (provider === "google") {
-            let provider = new firebase.auth.GoogleAuthProvider();
             this.angularFireAuth
                 .auth
-                .signInWithPopup(provider)
+                .signInWithPopup(new firebase.auth.GoogleAuthProvider())
                 .then(auth => result.next("success"))
                 .catch(err => result.error(err));
             return result.asObservable();
         }
         else if (provider === "twitter") {
-            let provider = new firebase.auth.TwitterAuthProvider();
             this.angularFireAuth
                 .auth
-                .signInWithPopup(provider)
+                .signInWithPopup(new firebase.auth.TwitterAuthProvider())
                 .then(auth => result.next("success"))
                 .catch(err => result.error(err));
             return result.asObservable();
