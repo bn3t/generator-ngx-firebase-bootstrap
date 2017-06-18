@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {AuthService} from "app/shared/auth.service";
-import {Observable} from "rxjs";
+import { Observable, BehaviorSubject } from "rxjs";
 import {Router} from "@angular/router";
 import {UserInfo} from "app/shared/user-info";
 
@@ -12,12 +12,19 @@ import {UserInfo} from "app/shared/user-info";
 export class AppComponent {
     private alertType = null;
     private alertMessage = "";
+    private isLoggedIn = new BehaviorSubject<boolean>(false);
 
     constructor(private authService: AuthService, private router: Router) {
+        this.authService.isLoggedIn().subscribe(this.isLoggedIn);
     }
 
-    isLoggedIn(): Observable<boolean> {
-        return this.authService.isLoggedIn();
+    currentUser(): Observable<UserInfo> {
+        return this.authService.currentUser();
+    }
+
+    logout() {
+        this.authService.logout();
+        this.router.navigate(['/']);
     }
 
     onResetPasswordSuccess() {

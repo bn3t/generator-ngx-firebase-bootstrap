@@ -36,7 +36,8 @@ export class LoginUserComponent {
         }
     }
 
-    loginVia(provider: string) {
+    loginVia($event, provider: string) {
+        $event.preventDefault();
         this.authService.loginViaProvider(provider).subscribe(
             () => this.onSuccess.emit(),
             err => this.onError.emit(err)

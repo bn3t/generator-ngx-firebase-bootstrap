@@ -1,5 +1,5 @@
 import {Component} from "@angular/core";
-import {Observable} from "rxjs";
+import { Observable, BehaviorSubject } from "rxjs";
 import {AuthService} from "app/shared/auth.service";
 
 @Component({
@@ -8,11 +8,9 @@ import {AuthService} from "app/shared/auth.service";
     styleUrls: ['./all-in-one-page.component.css']
 })
 export class AllInOnePageComponent {
+    private isLoggedIn = new BehaviorSubject<boolean>(false);
 
     constructor(private authService: AuthService) {
-    }
-
-    isLoggedIn(): Observable<boolean> {
-        return this.authService.isLoggedIn();
+        this.authService.isLoggedIn().subscribe(this.isLoggedIn);
     }
 }

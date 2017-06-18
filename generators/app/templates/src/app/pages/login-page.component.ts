@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {AuthService} from "app/shared/auth.service";
-import {Observable} from "rxjs";
+import { Observable, BehaviorSubject } from "rxjs";
 import {Router} from "@angular/router";
 
 @Component({
@@ -9,14 +9,17 @@ import {Router} from "@angular/router";
     styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent {
-    constructor(private authService: AuthService, private router: Router) {
-    }
+    private isLoggedIn = new BehaviorSubject<boolean>(false);
 
-    isLoggedIn(): Observable<boolean> {
-        return this.authService.isLoggedIn();
+    constructor(private authService: AuthService, private router: Router) {
+        this.authService.isLoggedIn().subscribe(this.isLoggedIn);
     }
 
     navigateToResetPassword($event) {
         this.router.navigate(['reset-password']);
+    }
+
+    navigateToHome() {
+        this.router.navigate(['/']);
     }
 }

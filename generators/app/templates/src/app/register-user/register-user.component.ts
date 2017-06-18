@@ -1,6 +1,6 @@
 import {Component, OnInit, EventEmitter, Output} from "@angular/core";
 import {AuthService} from "app/shared/auth.service";
-import {Observable} from "rxjs";
+import { Observable, BehaviorSubject } from "rxjs";
 import {FormGroup, AbstractControl, FormBuilder, Validators} from "@angular/forms";
 
 @Component({
@@ -8,7 +8,7 @@ import {FormGroup, AbstractControl, FormBuilder, Validators} from "@angular/form
     templateUrl: './register-user.component.html',
     styleUrls: ['./register-user.component.css']
 })
-export class RegisterUserComponent implements OnInit {
+export class RegisterUserComponent {
     form: FormGroup;
     email: AbstractControl;
     name: AbstractControl;
@@ -33,13 +33,6 @@ export class RegisterUserComponent implements OnInit {
         this.email = this.form.controls['email'];
         this.password = this.form.controls['password'];
         this.password2 = this.form.controls['password2'];
-    }
-
-    ngOnInit(): void {
-    }
-
-    isLoggedIn(): Observable<boolean> {
-        return this.authService.isLoggedIn();
     }
 
     onSubmit() {
