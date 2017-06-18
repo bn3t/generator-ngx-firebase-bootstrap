@@ -1,5 +1,5 @@
 import {Injectable, Inject} from "@angular/core";
-import {User} from "firebase";
+import * as firebase from 'firebase/app';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import {UserInfo} from "./user-info";
@@ -16,15 +16,15 @@ export class AuthService {
     };
 
     userInfo = new BehaviorSubject<UserInfo>(AuthService.UNKNOWN_USER);
-    private user: User;
-    
+    private user: firebase.User;
+
     constructor(private angularFireAuth: AngularFireAuth) {
         this.angularFireAuth.authState.subscribe(user => {
             // console.log("user: ", JSON.stringify(user));
             this.user = user;
             let userInfo = new UserInfo();
             if (user != null) {
-                
+
                 userInfo.isAnonymous = user.isAnonymous;
                 userInfo.email = user.email;
                 userInfo.displayName = user.displayName;
@@ -86,7 +86,7 @@ export class AuthService {
                 result.next("success");
             })
             .catch(err => result.error(err));
-        
+
         return result.asObservable();
     }
 
@@ -119,19 +119,17 @@ export class AuthService {
     loginViaProvider(provider: string): Observable<String> {
         let result = new Subject<string>();
         if (provider === "google") {
-            let provider = new firebase.auth.GoogleAuthProvider();
             this.angularFireAuth
                 .auth
-                .signInWithPopup(provider)
+                .signInWithPopup(new firebase.auth.GoogleAuthProvider())
                 .then(auth => result.next("success"))
                 .catch(err => result.error(err));
             return result.asObservable();
         }
         else if (provider === "twitter") {
-            let provider = new firebase.auth.TwitterAuthProvider();
             this.angularFireAuth
                 .auth
-                .signInWithPopup(provider)
+                .signInWithPopup(new firebase.auth.TwitterAuthProvider())
                 .then(auth => result.next("success"))
                 .catch(err => result.error(err));
             return result.asObservable();
