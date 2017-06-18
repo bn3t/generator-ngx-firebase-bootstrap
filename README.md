@@ -56,19 +56,19 @@ $ ng --version
  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
 /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
                |___/
-@angular/cli: 1.0.1
+@angular/cli: 1.1.2
 node: 6.10.3
 os: darwin x64
-@angular/common: 4.1.0
-@angular/compiler: 4.1.0
-@angular/core: 4.1.0
-@angular/forms: 4.1.0
-@angular/http: 4.1.0
-@angular/platform-browser: 4.1.0
-@angular/platform-browser-dynamic: 4.1.0
-@angular/router: 4.1.0
-@angular/cli: 1.0.1
-@angular/compiler-cli: 4.1.0
+@angular/common: 4.2.3
+@angular/compiler: 4.2.3
+@angular/core: 4.2.3
+@angular/forms: 4.2.3
+@angular/http: 4.2.3
+@angular/platform-browser: 4.2.3
+@angular/platform-browser-dynamic: 4.2.3
+@angular/router: 4.2.3
+@angular/cli: 1.1.2
+@angular/compiler-cli: 4.2.3
 ```
 
 ### Steps to install
