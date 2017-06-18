@@ -49,14 +49,10 @@ const routes: Routes = [
         ReactiveFormsModule,
         HttpModule,
         AlertModule.forRoot(),
-<<<<<<< HEAD
         AngularFireModule.initializeApp(firebaseConfig, "<%= name %>"),
         AngularFireDatabaseModule,
-        AngularFireAuthModule
-=======
-        AngularFireModule.initializeApp(firebaseConfig, authConfig),
+        AngularFireAuthModule,
         RouterModule.forRoot(routes)
->>>>>>> Added page and router - work in progress.
     ],
     providers: [AuthService, LoggedInGuard],
     bootstrap: [AppComponent]
