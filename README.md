@@ -11,7 +11,7 @@ which those tools and offers a framework for authentication right out of the box
 ## Features
 
 * An **Angular 4** app generated with angular-cli
-* Twitter Bootstrap with ng2-bootstrap
+* Twitter Bootstrap with ngx-bootstrap
 * AngularFire2 and Firebase
 * An initial implementation of an authentication service (See auth-service)
 * One component to display user information

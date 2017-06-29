@@ -6,7 +6,7 @@ This project is a generator for creating new projects with the following feature
 
 * Angular 2 (based on angular-cli)
 * Firebase via AngualarFire2
-* Bootstrap with ng2-bootstrap
+* Bootstrap with ngx-bootstrap
 
 ## Configuration
 
