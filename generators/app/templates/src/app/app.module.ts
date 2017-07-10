@@ -11,7 +11,7 @@ import {AuthService} from "app/shared/auth.service";
 import {LoginUserComponent} from "app/login-user/login-user.component";
 import {DisplayUserComponent} from "app/display-user/display-user.component";
 import {RegisterUserComponent} from "app/register-user/register-user.component";
-import {AlertModule} from "ng2-bootstrap";
+import {AlertModule} from "ngx-bootstrap";
 import {ResetPasswordComponent} from "./reset-password/reset-password.component";
 import {Routes, RouterModule} from "@angular/router";
 import {HomePageComponent} from "./pages/home-page.component";
