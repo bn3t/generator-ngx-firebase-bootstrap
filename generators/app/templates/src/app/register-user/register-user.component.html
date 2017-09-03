@@ -1,5 +1,5 @@
 <h3>Register</h3>
-<form [formGroup]="form" role="form" (ngSubmit)="onSubmit(form.value)" novalidate>
+<form [formGroup]="form" role="form" (ngSubmit)="onSubmit()" novalidate>
     <div class="form-group" [class.has-error]="name.invalid && name.touched">
         <label for="name" class="control-label">Name</label>
         <input [formControl]="name" required type="text" class="form-control" id="name" name="name">

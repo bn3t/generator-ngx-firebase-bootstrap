@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
     styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent {
-    private isLoggedIn = new BehaviorSubject<boolean>(false);
+    isLoggedIn = new BehaviorSubject<boolean>(false);
 
     constructor(private authService: AuthService, private router: Router) {
         this.authService.isLoggedIn().subscribe(this.isLoggedIn);
