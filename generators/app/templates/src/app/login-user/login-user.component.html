@@ -12,7 +12,7 @@
     <span class="span-or">or</span>
 </div>
 
-<form [formGroup]="form" role="form" (ngSubmit)="login(form.value)" novalidate>
+<form [formGroup]="form" role="form" (ngSubmit)="login()" novalidate>
     <div class="form-group" [class.has-error]="email.invalid && email.touched">
         <label for="email">Email</label>
         <input [formControl]="email" required type="text" class="form-control" id="email" name="email">
