@@ -37,8 +37,8 @@ This generator is targeted to be used with Node >= 6.9.0 and NPM >= 3.0.0. You c
 
 ```shell
 $ node --version && npm --version
-v6.10.3
-3.10.10
+v6.11.2
+5.4.0
 ```
 
 ### Requirement Angular CLI
@@ -56,19 +56,19 @@ $ ng --version
  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
 /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
                |___/
-@angular/cli: 1.1.2
-node: 6.10.3
+@angular/cli: 1.3.2
+node: 6.11.2
 os: darwin x64
-@angular/common: 4.2.3
-@angular/compiler: 4.2.3
-@angular/core: 4.2.3
-@angular/forms: 4.2.3
-@angular/http: 4.2.3
-@angular/platform-browser: 4.2.3
-@angular/platform-browser-dynamic: 4.2.3
-@angular/router: 4.2.3
-@angular/cli: 1.1.2
-@angular/compiler-cli: 4.2.3
+@angular/common: 4.3.6
+@angular/compiler: 4.3.6
+@angular/core: 4.3.6
+@angular/forms: 4.3.6
+@angular/http: 4.3.6
+@angular/platform-browser: 4.3.6
+@angular/platform-browser-dynamic: 4.3.6
+@angular/router: 4.3.6
+@angular/cli: 1.3.2
+@angular/compiler-cli: 4.3.6
 ```
 
 ### Steps to install
