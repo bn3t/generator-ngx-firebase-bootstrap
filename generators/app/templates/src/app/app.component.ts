@@ -12,7 +12,7 @@ import {UserInfo} from "app/shared/user-info";
 export class AppComponent {
     private alertType = null;
     private alertMessage = "";
-    private isLoggedIn = new BehaviorSubject<boolean>(false);
+    isLoggedIn = new BehaviorSubject<boolean>(false);
 
     constructor(private authService: AuthService, private router: Router) {
         this.authService.isLoggedIn().subscribe(this.isLoggedIn);
