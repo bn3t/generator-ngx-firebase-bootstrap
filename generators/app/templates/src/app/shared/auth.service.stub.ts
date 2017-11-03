@@ -18,7 +18,7 @@ export class AuthServiceStub {
         userInfo.photoURL = "my-photo-url";
         userInfo.providerId = "my-provider-id";
 
-        let replaySubject = new ReplaySubject();
+        let replaySubject = new ReplaySubject<UserInfo>();
         if (this.loggedin) {
             replaySubject.next(userInfo);
         }
