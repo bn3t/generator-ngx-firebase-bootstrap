@@ -1,4 +1,4 @@
-# generator-ngx-firebase-bootstrap [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-ngx-firebase-bootstrap [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
 
 A Yeoman generator for creating projects based on Angular, Firebase and Twitter Bootstrap. This generator provides basic integration 
 which those tools and offers a framework for authentication right out of the box.
@@ -10,7 +10,7 @@ which those tools and offers a framework for authentication right out of the box
 
 ## Features
 
-* An **Angular 4** app generated with angular-cli
+* An **Angular 5** app generated with angular-cli
 * Twitter Bootstrap with ngx-bootstrap
 * AngularFire2 and Firebase
 * An initial implementation of an authentication service (See auth-service)
@@ -37,38 +37,43 @@ This generator is targeted to be used with Node >= 6.9.0 and NPM >= 3.0.0. You c
 
 ```shell
 $ node --version && npm --version
-v6.11.2
-5.4.0
+v6.11.5
+5.5.1
 ```
 
 ### Requirement Angular CLI
 
-To build and run this project, you will need Angular CLI. This version is compatible with @angular/cli 1.0. If you have
+To build and run this project, you will need Angular CLI. This version is compatible with @angular/cli 1.5. If you have
 any previous instantiation of the Angular CLI, you should remove them.
 
 ```shell
 $ npm uninstall -g angular-cli # remove any previous angular-cli
 $ npm i -g @angular/cli
 $ ng --version
+
     _                      _                 ____ _     ___
    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
 /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
                |___/
-@angular/cli: 1.3.2
-node: 6.11.2
-os: darwin x64
-@angular/common: 4.3.6
-@angular/compiler: 4.3.6
-@angular/core: 4.3.6
-@angular/forms: 4.3.6
-@angular/http: 4.3.6
-@angular/platform-browser: 4.3.6
-@angular/platform-browser-dynamic: 4.3.6
-@angular/router: 4.3.6
-@angular/cli: 1.3.2
-@angular/compiler-cli: 4.3.6
+
+Angular CLI: 1.5.0
+Node: 6.11.5
+OS: darwin x64
+Angular: 5.0.0
+... common, compiler, compiler-cli, core, forms, http
+... platform-browser, platform-browser-dynamic, router
+
+@angular/cli: 1.5.0
+@angular-devkit/build-optimizer: 0.0.32
+@angular-devkit/core: 0.0.20
+@angular-devkit/schematics: 0.0.35
+@ngtools/json-schema: 1.1.0
+@ngtools/webpack: 1.8.0
+@schematics/angular: 0.1.0
+typescript: 2.4.2
+webpack: 3.8.1
 ```
 
 ### Steps to install
@@ -173,13 +178,16 @@ To run the project using Angular CLI, do the following:
 
 ```shell
 $ ng serve
-  ** NG Live Development Server is running on http://localhost:4200 **
-  Hash: 541b798f948bd3bb21cb
-  Time: 18855ms
-  chunk    {0} main.bundle.js, main.bundle.js.map (main) 38.4 kB {2} [initial] [rendered]
-  chunk    {1} styles.bundle.js, styles.bundle.js.map (styles) 130 kB {3} [initial] [rendered]
-  chunk    {2} vendor.bundle.js, vendor.bundle.js.map (vendor) 4.25 MB [initial] [rendered]
-  chunk    {3} inline.bundle.js, inline.bundle.js.map (inline) 0 bytes [entry] [rendered]
+** NG Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **
+Date: 2017-11-04T09:18:25.652Z
+Hash: f6c114799d04e747e207
+Time: 20863ms
+chunk {inline} inline.bundle.js (inline) 5.79 kB [entry] [rendered]
+chunk {main} main.bundle.js (main) 177 kB [initial] [rendered]
+chunk {styles} styles.bundle.js (styles) 358 kB [initial] [rendered]
+chunk {vendor} vendor.bundle.js (vendor) 17.2 MB [initial] [rendered]
+
+webpack: Compiled successfully.
 
 ```
 
@@ -199,6 +207,7 @@ $ firebase init
 > Accept default database.rules.json
 > Choose 'dist' as your public directory
 > Enter 'yes' for rewrite all urls to index.html
+> Enter 'no' for Overwriting dist/index.html
 ```
 
 Then build your application for production with AOT.
@@ -213,7 +222,7 @@ Then deploy to Firebase.
 $ firebase deploy
 ```
 
-## Angular 2 CLI Specifics
+## Angular CLI Specifics
 
 This project was generated with [Angular Cli](https://github.com/angular/angular-cli/wiki). The project is still compatible
 with the CLI so you can use it to run your Development server, add more components, etc.
