@@ -221,7 +221,7 @@ Then deploy to Firebase.
 $ firebase deploy
 ```
 
-## Angular 2 CLI Specifics
+## Angular CLI Specifics
 
 This project was generated with [Angular Cli](https://github.com/angular/angular-cli/wiki). The project is still compatible
 with the CLI so you can use it to run your Development server, add more components, etc.
