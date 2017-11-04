@@ -1,6 +1,7 @@
 import {Component, OnInit, EventEmitter, Output} from "@angular/core";
 import {AuthService} from "app/shared/auth.service";
-import { Observable, BehaviorSubject } from "rxjs";
+import { Observable } from "rxjs/Observable";
+import { BehaviorSubject } from "rxjs/BehaviorSubject";
 import {FormGroup, AbstractControl, FormBuilder, Validators} from "@angular/forms";
 
 @Component({
