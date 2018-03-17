@@ -1,16 +1,15 @@
 # generator-ngx-firebase-bootstrap [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
 
-A Yeoman generator for creating projects based on Angular, Firebase and Twitter Bootstrap. This generator provides basic integration 
-which those tools and offers a framework for authentication right out of the box.
+A Yeoman generator for creating projects based on Angular, Firebase and Twitter Bootstrap. This generator provides basic integration
+with those tools and offers a framework for authentication right out of the box.
 
-![angular-220px](https://cloud.githubusercontent.com/assets/1102723/24071875/b0571ecc-0bdc-11e7-940f-dc042b0578ef.png) 
-![bootstrap-social-logo-220px](https://cloud.githubusercontent.com/assets/1102723/24071881/bca110f2-0bdc-11e7-933d-7ac4d972cee4.png) 
+![angular-220px](https://cloud.githubusercontent.com/assets/1102723/24071875/b0571ecc-0bdc-11e7-940f-dc042b0578ef.png)
+![bootstrap-social-logo-220px](https://cloud.githubusercontent.com/assets/1102723/24071881/bca110f2-0bdc-11e7-933d-7ac4d972cee4.png)
 ![firebase_16-logo-220px](https://cloud.githubusercontent.com/assets/1102723/24071871/a1a11446-0bdc-11e7-9161-399fd17f4829.png)
-
 
 ## Features
 
-* An **Angular 5** app generated with angular-cli
+* An **Angular 5** app generated with angular-cli (Angular 5.2.0)
 * Twitter Bootstrap with ngx-bootstrap
 * AngularFire2 and Firebase
 * An initial implementation of an authentication service (See auth-service)
@@ -37,8 +36,8 @@ This generator is targeted to be used with Node >= 6.9.0 and NPM >= 3.0.0. You c
 
 ```shell
 $ node --version && npm --version
-v6.11.5
-5.5.1
+v9.6.1
+5.7.1
 ```
 
 ### Requirement Angular CLI
@@ -50,7 +49,6 @@ any previous instantiation of the Angular CLI, you should remove them.
 $ npm uninstall -g angular-cli # remove any previous angular-cli
 $ npm i -g @angular/cli
 $ ng --version
-
     _                      _                 ____ _     ___
    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
@@ -58,22 +56,24 @@ $ ng --version
 /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
                |___/
 
-Angular CLI: 1.5.0
-Node: 6.11.5
+Angular CLI: 1.7.2
+Node: 9.6.1
 OS: darwin x64
-Angular: 5.0.0
+Angular: 5.2.0
 ... common, compiler, compiler-cli, core, forms, http
-... platform-browser, platform-browser-dynamic, router
+... language-service, platform-browser, platform-browser-dynamic
+... router
 
-@angular/cli: 1.5.0
-@angular-devkit/build-optimizer: 0.0.32
-@angular-devkit/core: 0.0.20
-@angular-devkit/schematics: 0.0.35
-@ngtools/json-schema: 1.1.0
-@ngtools/webpack: 1.8.0
-@schematics/angular: 0.1.0
-typescript: 2.4.2
-webpack: 3.8.1
+@angular/cli: 1.7.2
+@angular-devkit/build-optimizer: 0.3.2
+@angular-devkit/core: 0.3.2
+@angular-devkit/schematics: 0.3.2
+@ngtools/json-schema: 1.2.0
+@ngtools/webpack: 1.10.1
+@schematics/angular: 0.3.2
+@schematics/package-update: 0.3.2
+typescript: 2.5.3
+webpack: 3.11.0
 ```
 
 ### Steps to install
@@ -93,20 +93,19 @@ Then generate your new project:
 $ yo ngx-firebase-bootstrap
 ```
 
-
 ## Getting Started
 
-You should have your Firebase project created in Firebase. For this, go to the 
-[Firebase Console](https://console.firebase.google.com/) and create a new project, in the newly 
-created project go to 'Add Firebase to your web app'. This option will give you all the 
-credential information you will need when generating your project. For authentication to work, you 
-should enable the Authentication methods you want to use (See [Authenticate Using Google Sign-In with JavaScript](https://firebase.google.com/docs/auth/web/google-signin)). The seeded project contains a auth-service 
+You should have your Firebase project created in Firebase. For this, go to the
+[Firebase Console](https://console.firebase.google.com/) and create a new project, in the newly
+created project go to 'Add Firebase to your web app'. This option will give you all the
+credential information you will need when generating your project. For authentication to work, you
+should enable the Authentication methods you want to use (See [Authenticate Using Google Sign-In with JavaScript](https://firebase.google.com/docs/auth/web/google-signin)). The seeded project contains a auth-service
 provider that can handle several types of authentication.
 
 ### Steps to scaffold a new project
 
-1. Create a project folder and enter it: `mkdir myproject && cd $_`
-2. Generate project: `yo ngx-firebase-bootstrap`
+1.  Create a project folder and enter it: `mkdir myproject && cd $_`
+2.  Generate project: `yo ngx-firebase-bootstrap`
 
 The generator will ask you a few information on your Firebase project:
 
@@ -116,23 +115,23 @@ The generator will ask you a few information on your Firebase project:
 * Your Storage Bucket
 * Your Messaging SenderId
 
-You should have those handy when you run the generator. Otherwise, you can go and fill 
-in those values in the firebaseConfig.ts file in the generated project. 
+You should have those handy when you run the generator. Otherwise, you can go and fill
+in those values in the firebaseConfig.ts file in the generated project.
 
 The generator will also optionally run `git init` on your project and do an initial commit for you.
 
 ## Squeleton of the generated app
 
-The generated project will contain example code to authenticate to your project in Firebase. 
-For this to actually work, you will have to enable authentication in your firebase project. 
-The project supports Email/Password, Google Sign-In and Twitter. You could probably use Facebook and Github 
-but we never tested that. 
+The generated project will contain example code to authenticate to your project in Firebase.
+For this to actually work, you will have to enable authentication in your firebase project.
+The project supports Email/Password, Google Sign-In and Twitter. You could probably use Facebook and Github
+but we never tested that.
 
-Go to [Firebase Authentication Documentation](https://firebase.google.com/docs/auth/) to find out how to 
-enable authentication for your project in Firebase. Please note that to use Email/Password authentication, 
+Go to [Firebase Authentication Documentation](https://firebase.google.com/docs/auth/) to find out how to
+enable authentication for your project in Firebase. Please note that to use Email/Password authentication,
 so you will have to register users yourself via the Firebase Console.
 
-The generated project will contain the following pages to help you start with your application featuring a basic router 
+The generated project will contain the following pages to help you start with your application featuring a basic router
 setup.
 
 ### Navigation Bar
@@ -161,7 +160,7 @@ When not logged in the Home Pages shows links to the Login and Register pages, o
 
 ### Dashboard Page
 
-The Dashboard page is an example of a proteted page in your application. The page is protected by the LoggedInGuard that 
+The Dashboard page is an example of a proteted page in your application. The page is protected by the LoggedInGuard that
 checks the user is logged in before allowing access.
 
 ![Dashboard Page](https://user-images.githubusercontent.com/1102723/27261123-d8725036-543c-11e7-9f7d-0a5f6ae97e5e.png)
@@ -179,18 +178,16 @@ To run the project using Angular CLI, do the following:
 ```shell
 $ ng serve
 ** NG Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **
-Date: 2017-11-04T09:18:25.652Z
-Hash: f6c114799d04e747e207
-Time: 20863ms
-chunk {inline} inline.bundle.js (inline) 5.79 kB [entry] [rendered]
-chunk {main} main.bundle.js (main) 177 kB [initial] [rendered]
-chunk {styles} styles.bundle.js (styles) 358 kB [initial] [rendered]
-chunk {vendor} vendor.bundle.js (vendor) 17.2 MB [initial] [rendered]
+Date: 2018-03-17T09:11:46.424Z
+Hash: 8fec63694b424472f522
+Time: 13870ms
+chunk {inline} inline.bundle.js (inline) 3.85 kB [entry] [rendered]
+chunk {main} main.bundle.js (main) 153 kB [initial] [rendered]
+chunk {styles} styles.bundle.js (styles) 365 kB [initial] [rendered]
+chunk {vendor} vendor.bundle.js (vendor) 14.8 MB [initial] [rendered]
 
 webpack: Compiled successfully.
-
 ```
-
 
 Please refer to Angular CLI documentation below.
 
@@ -230,7 +227,6 @@ with the CLI so you can use it to run your Development server, add more componen
 ### License
 
 Apache-2.0 © [Bernard Niset]()
-
 
 [npm-image]: https://badge.fury.io/js/generator-ngx-firebase-bootstrap.svg
 [npm-url]: https://npmjs.org/package/generator-ngx-firebase-bootstrap
