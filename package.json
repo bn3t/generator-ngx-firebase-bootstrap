@@ -1,6 +1,6 @@
 {
   "name": "generator-ngx-firebase-bootstrap",
-  "version": "2.2.2",
+  "version": "3.0.0",
   "description": "Generator for Angular - Firebase - Bootstrap projects",
   "homepage": "",
   "author": {
@@ -10,24 +10,23 @@
   "main": "generators/index.js",
   "keywords": ["angular2", "firebase", "bootstrap", "yeoman-generator"],
   "dependencies": {
-    "yeoman-generator": "^1.0.0",
-    "chalk": "^1.1.3",
-    "yosay": "^1.2.1",
-    "generator-git-init": "^1.1.3"
+    "yeoman-generator": "^2.0.5",
+    "chalk": "^2.4.1",
+    "yosay": "^2.0.2"
   },
   "devDependencies": {
-    "yeoman-test": "^1.6.0",
-    "yeoman-assert": "^2.2.1",
+    "yeoman-test": "^1.7.2",
+    "yeoman-assert": "^3.1.1",
     "eslint": "^3.1.1",
     "eslint-config-xo-space": "^0.15.0",
-    "gulp": "^3.9.0",
+    "gulp": "^3.9.1",
     "gulp-eslint": "^3.0.1",
     "gulp-exclude-gitignore": "^1.0.0",
     "gulp-line-ending-corrector": "^1.0.1",
     "gulp-istanbul": "^1.0.0",
-    "gulp-mocha": "^3.0.1",
-    "gulp-plumber": "^1.0.0",
-    "gulp-nsp": "^2.1.0"
+    "gulp-mocha": "^5.0.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-nsp": "^3.0.1"
   },
   "eslintConfig": {
     "extends": "xo-space",
