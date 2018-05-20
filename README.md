@@ -9,7 +9,7 @@ with those tools and offers a framework for authentication right out of the box.
 
 ## Features
 
-* An **Angular 5** app generated with angular-cli (Angular 5.2.0)
+* An **Angular 6** app generated with angular-cli (Angular 6.0.2)
 * Twitter Bootstrap with ngx-bootstrap
 * AngularFire2 and Firebase
 * An initial implementation of an authentication service (See auth-service)
@@ -36,44 +36,41 @@ This generator is targeted to be used with Node >= 6.9.0 and NPM >= 3.0.0. You c
 
 ```shell
 $ node --version && npm --version
-v9.6.1
-5.7.1
+v9.8.0
+6.0.1
 ```
 
 ### Requirement Angular CLI
 
-To build and run this project, you will need Angular CLI. This version is compatible with @angular/cli 1.5. If you have
+To build and run this project, you will need Angular CLI. This version is compatible with @angular/cli 6.0.3. If you have
 any previous instantiation of the Angular CLI, you should remove them.
 
 ```shell
 $ npm uninstall -g angular-cli # remove any previous angular-cli
 $ npm i -g @angular/cli
 $ ng --version
-    _                      _                 ____ _     ___
-   / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
-  / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
- / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
-/_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
-               |___/
+     _                      _                 ____ _     ___
+    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
+  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
+ /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+                |___/
 
-Angular CLI: 1.7.2
-Node: 9.6.1
+
+Angular CLI: 6.0.3
+Node: 9.11.1
 OS: darwin x64
-Angular: 5.2.0
-... common, compiler, compiler-cli, core, forms, http
-... language-service, platform-browser, platform-browser-dynamic
-... router
+Angular: undefined
+...
 
-@angular/cli: 1.7.2
-@angular-devkit/build-optimizer: 0.3.2
-@angular-devkit/core: 0.3.2
-@angular-devkit/schematics: 0.3.2
-@ngtools/json-schema: 1.2.0
-@ngtools/webpack: 1.10.1
-@schematics/angular: 0.3.2
-@schematics/package-update: 0.3.2
-typescript: 2.5.3
-webpack: 3.11.0
+Package                      Version
+------------------------------------------------------
+@angular-devkit/architect    0.6.3 (cli-only)
+@angular-devkit/core         0.6.3 (cli-only)
+@angular-devkit/schematics   0.6.3 (cli-only)
+@schematics/angular          0.6.3 (cli-only)
+@schematics/update           0.6.3 (cli-only)
+rxjs                         5.5.10
 ```
 
 ### Steps to install
@@ -84,7 +81,7 @@ First, install [Yeoman](http://yeoman.io) and generator-ngx-firebase-bootstrap u
 $ npm install -g yo
 $ npm install -g generator-ngx-firebase-bootstrap
 # If you want this generator to init a git repository for you
-$ npm install -g generator-git-init
+# not supported for the moment: $ npm install -g generator-git-init
 ```
 
 Then generate your new project:
@@ -118,7 +115,7 @@ The generator will ask you a few information on your Firebase project:
 You should have those handy when you run the generator. Otherwise, you can go and fill
 in those values in the firebaseConfig.ts file in the generated project.
 
-The generator will also optionally run `git init` on your project and do an initial commit for you.
+_Not supported for the moment_: The generator will also optionally run `git init` on your project and do an initial commit for you.
 
 ## Squeleton of the generated app
 
@@ -176,17 +173,17 @@ This page is available when not logged in and shows all available components in 
 To run the project using Angular CLI, do the following:
 
 ```shell
-$ ng serve
-** NG Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **
-Date: 2018-03-17T09:11:46.424Z
-Hash: 8fec63694b424472f522
-Time: 13870ms
-chunk {inline} inline.bundle.js (inline) 3.85 kB [entry] [rendered]
-chunk {main} main.bundle.js (main) 153 kB [initial] [rendered]
-chunk {styles} styles.bundle.js (styles) 365 kB [initial] [rendered]
-chunk {vendor} vendor.bundle.js (vendor) 14.8 MB [initial] [rendered]
+$ ng serve                                                                                                                  130 ↵
+** Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **
 
-webpack: Compiled successfully.
+Date: 2018-05-20T11:14:31.504Z
+Hash: 4c66c7c1edfed1ce558d
+Time: 14024ms
+chunk {main} main.js, main.js.map (main) 83.8 kB [initial] [rendered]
+chunk {runtime} runtime.js, runtime.js.map (runtime) 5.22 kB [entry] [rendered]
+chunk {styles} styles.js, styles.js.map (styles) 134 kB [initial] [rendered]
+chunk {vendor} vendor.js, vendor.js.map (vendor) 6.43 MB [initial] [rendered]
+ℹ ｢wdm｣: Compiled successfully.
 ```
 
 Please refer to Angular CLI documentation below.

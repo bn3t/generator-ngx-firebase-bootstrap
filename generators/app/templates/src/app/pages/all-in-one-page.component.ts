@@ -1,6 +1,5 @@
 import {Component} from "@angular/core";
-import { Observable } from "rxjs/Observable";
-import { BehaviorSubject } from "rxjs/BehaviorSubject";
+import { Observable ,  BehaviorSubject } from "rxjs";
 import {AuthService} from "app/shared/auth.service";
 
 @Component({
