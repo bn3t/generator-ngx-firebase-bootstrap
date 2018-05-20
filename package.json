@@ -1,21 +1,14 @@
 {
   "name": "generator-ngx-firebase-bootstrap",
-  "version": "3.0.0-next",
+  "version": "3.0.0",
   "description": "Generator for Angular - Firebase - Bootstrap projects",
   "homepage": "",
   "author": {
     "name": "Bernard Niset"
   },
-  "files": [
-    "generators"
-  ],
+  "files": ["generators"],
   "main": "generators/index.js",
-  "keywords": [
-    "angular2",
-    "firebase",
-    "bootstrap",
-    "yeoman-generator"
-  ],
+  "keywords": ["angular2", "firebase", "bootstrap", "yeoman-generator"],
   "dependencies": {
     "yeoman-generator": "^2.0.5",
     "chalk": "^2.4.1",
