@@ -32,7 +32,7 @@ and add more pages to your own needs.
 
 ### Requirement Node 6+ && NPM 3+
 
-This generator is targeted to be used with Node >= 6.9.0 and NPM >= 3.0.0. You can check your version number with the command
+This generator is targeted to be used with Node >= 9.8.0 and NPM >= 6.0.0. You can check your version number with the command
 
 ```shell
 $ node --version && npm --version
