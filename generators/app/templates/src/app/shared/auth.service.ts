@@ -1,11 +1,10 @@
-import {Injectable, Inject} from "@angular/core";
-import * as firebase from 'firebase/app';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
-import {UserInfo} from "./user-info";
-import { Observable } from "rxjs/Observable";
-import { Subject } from "rxjs/Subject";
-import { BehaviorSubject } from "rxjs/BehaviorSubject";
+import { Injectable, Inject } from "@angular/core";
+import * as firebase from "firebase/app";
+import { AngularFireModule } from "angularfire2";
+import { AngularFireAuthModule, AngularFireAuth } from "angularfire2/auth";
+import { UserInfo } from "./user-info";
+import { Observable, Subject, BehaviorSubject } from "rxjs";
+import { map } from "rxjs/operators";
 
 @Injectable()
 export class AuthService {
@@ -26,7 +25,6 @@ export class AuthService {
             this.user = user;
             let userInfo = new UserInfo();
             if (user != null) {
-
                 userInfo.isAnonymous = user.isAnonymous;
                 userInfo.email = user.email;
                 userInfo.displayName = user.displayName;
@@ -43,7 +41,8 @@ export class AuthService {
 
     login(email: string, password: string): Observable<string> {
         let result = new Subject<string>();
-        this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
+        this.angularFireAuth.auth
+            .signInWithEmailAndPassword(email, password)
             .then(() => result.next("success"))
             .catch(err => result.error(err));
         return result.asObservable();
@@ -56,33 +55,45 @@ export class AuthService {
     logout(): Observable<string> {
         let result = new Subject<string>();
         this.userInfo.next(AuthService.UNKNOWN_USER);
-        this.angularFireAuth.auth.signOut()
+        this.angularFireAuth.auth
+            .signOut()
             .then(() => result.next("success"))
             .catch(err => result.error(err));
         return result.asObservable();
     }
 
     isLoggedIn(): Observable<boolean> {
-        return this.userInfo.map(userInfo => !userInfo.isAnonymous);
+        return this.userInfo.pipe(map(userInfo => !userInfo.isAnonymous));
     }
 
     updateDisplayName(displayName: string): Observable<string> {
         let result = new Subject<string>();
-        this.user.updateProfile({displayName: displayName, photoURL: null})
-            .then(() => {result.next("success")})
+        this.user
+            .updateProfile({ displayName: displayName, photoURL: null })
+            .then(() => {
+                result.next("success");
+            })
             .catch(err => result.error(err));
         return result;
     }
 
-    createUser(email: string, password: string, displayName: string): Observable<string> {
+    createUser(
+        email: string,
+        password: string,
+        displayName: string
+    ): Observable<string> {
         let result = new Subject<string>();
         this.angularFireAuth.authState.subscribe(user => {
             // console.log("Update: ", user);
             if (user != null) {
-                user.updateProfile({displayName: displayName, photoURL: null});
+                user.updateProfile({
+                    displayName: displayName,
+                    photoURL: null
+                });
             }
         });
-        this.angularFireAuth.auth.createUserWithEmailAndPassword(email, password)
+        this.angularFireAuth.auth
+            .createUserWithEmailAndPassword(email, password)
             .then(() => {
                 //auth.auth.updateProfile({displayName: displayName, photoURL: null});
                 result.next("success");
@@ -94,7 +105,8 @@ export class AuthService {
 
     updateEmail(email: string): Observable<string> {
         let result = new Subject<string>();
-        this.user.updateEmail(email)
+        this.user
+            .updateEmail(email)
             .then(() => result.next("success"))
             .catch(err => result.error(err));
         return result.asObservable();
@@ -102,17 +114,19 @@ export class AuthService {
 
     updatePassword(password: string): Observable<string> {
         let result = new Subject<string>();
-        this.user.updatePassword(password)
-                .then(a => {
-                    result.next("success");
-                })
-                .catch(err => result.error(err));
+        this.user
+            .updatePassword(password)
+            .then(a => {
+                result.next("success");
+            })
+            .catch(err => result.error(err));
         return result.asObservable();
     }
 
     sendPasswordResetEmail(email: string): Observable<string> {
         let result = new Subject<string>();
-        this.angularFireAuth.auth.sendPasswordResetEmail(email)
+        this.angularFireAuth.auth
+            .sendPasswordResetEmail(email)
             .then(() => result.next("success"))
             .catch(err => result.error(err));
         return result;
@@ -121,22 +135,19 @@ export class AuthService {
     loginViaProvider(provider: string): Observable<String> {
         let result = new Subject<string>();
         if (provider === "google") {
-            this.angularFireAuth
-                .auth
+            this.angularFireAuth.auth
                 .signInWithPopup(new firebase.auth.GoogleAuthProvider())
                 .then(auth => result.next("success"))
                 .catch(err => result.error(err));
             return result.asObservable();
-        }
-        else if (provider === "twitter") {
-            this.angularFireAuth
-                .auth
+        } else if (provider === "twitter") {
+            this.angularFireAuth.auth
                 .signInWithPopup(new firebase.auth.TwitterAuthProvider())
                 .then(auth => result.next("success"))
                 .catch(err => result.error(err));
             return result.asObservable();
         }
-        result.error("Not a supported authentication method: " + provider)
+        result.error("Not a supported authentication method: " + provider);
         return result.asObservable();
     }
 }
