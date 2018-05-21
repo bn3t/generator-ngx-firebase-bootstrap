@@ -48,13 +48,13 @@ module.exports = class extends Generator {
         type: "input",
         name: "messagingSenderId",
         message: "Your Firebase Messaging Sender Id"
+      },
+      {
+        type: "confirm",
+        name: "initGit",
+        default: true,
+        message: "Would you like me to init a git repo here?"
       }
-      // {
-      //   type: "confirm",
-      //   name: "initGit",
-      //   default: true,
-      //   message: "Would you like me to init a git repo here?"
-      // }
     ];
 
     return this.prompt(prompts).then(
@@ -65,15 +65,8 @@ module.exports = class extends Generator {
     );
   }
 
-  // configuring() {
-  //   if (this.props.initGit) {
-  //     this.composeWith(require.resolve("generator-git-init"), {
-  //       commit: "Initial commit by ngx-firebase-bootstrap generator"
-  //     });
-  //   }
-  // }
-
   writing() {
+    console.log("writing")
     var toCopy = [
       "./.editorconfig",
       "./e2e/app.po.ts",
@@ -168,6 +161,11 @@ module.exports = class extends Generator {
   }
 
   install() {
+    if (this.props.initGit) {
+      this.composeWith(require.resolve("generator-git-init"), {
+        commit: "Initial commit by ngx-firebase-bootstrap generator"
+      });
+    }
     this.npmInstall();
   }
 };
