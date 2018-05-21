@@ -1,4 +1,4 @@
-# generator-ngx-firebase-bootstrap [![NPM version][npm-image]][npm-url]
+# generator-ngx-firebase-bootstrap [![NPM version][npm-image]][npm-url] [![Build Status](https://travis-ci.org/bn3t/generator-ngx-firebase-bootstrap.svg?branch=develop)](https://travis-ci.org/bn3t/generator-ngx-firebase-bootstrap)
 
 A Yeoman generator for creating projects based on Angular, Firebase and Twitter Bootstrap. This generator provides basic integration
 with those tools and offers a framework for authentication right out of the box.
