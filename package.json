@@ -37,7 +37,8 @@
   "repository": "bn3t/generator-ngx-firebase-bootstrap",
   "scripts": {
     "prepublish": "gulp prepublish",
-    "test": "gulp"
+    "test": "gulp",
+    "test:watch": "gulp watch"
   },
   "license": "Apache-2.0"
 }
