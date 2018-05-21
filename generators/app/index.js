@@ -66,7 +66,6 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    console.log("writing")
     var toCopy = [
       "./.editorconfig",
       "./e2e/app.po.ts",
