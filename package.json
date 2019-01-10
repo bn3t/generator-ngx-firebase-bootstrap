@@ -28,13 +28,7 @@
     "yeoman-assert": "^3.1.1",
     "eslint": "^5.12.0",
     "eslint-config-xo-space": "^0.20.0",
-    "gulp": "^4.0.0",
-    "gulp-eslint": "^5.0.0",
-    "gulp-exclude-gitignore": "^1.2.0",
-    "gulp-line-ending-corrector": "^1.0.3",
-    "gulp-istanbul": "^1.1.3",
-    "gulp-mocha": "^6.0.0",
-    "gulp-plumber": "^1.2.0"
+    "jest": "^23.5.0"
   },
   "eslintConfig": {
     "extends": "xo-space",
@@ -44,9 +38,8 @@
   },
   "repository": "bn3t/generator-ngx-firebase-bootstrap",
   "scripts": {
-    "prepublish": "npm audit --audit-level high",
-    "test": "gulp",
-    "test:watch": "gulp watch"
+    "pretest": "eslint generators/app/index.js",
+    "test": "jest"
   },
   "license": "Apache-2.0"
 }
