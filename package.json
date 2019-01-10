@@ -2,31 +2,39 @@
   "name": "generator-ngx-firebase-bootstrap",
   "version": "3.0.0",
   "description": "Generator for Angular - Firebase - Bootstrap projects",
-  "homepage": "",
+  "homepage": "https://github.com/bn3t/generator-ngx-firebase-bootstrap#readme",
   "author": {
     "name": "Bernard Niset"
   },
-  "files": ["generators"],
+  "files": [
+    "generators"
+  ],
   "main": "generators/index.js",
-  "keywords": ["angular2", "firebase", "bootstrap", "yeoman-generator"],
+  "keywords": [
+    "angular2",
+    "angular7",
+    "ngx",
+    "firebase",
+    "bootstrap",
+    "yeoman-generator"
+  ],
   "dependencies": {
-    "yeoman-generator": "^2.0.5",
+    "yeoman-generator": "^3.2.0",
     "chalk": "^2.4.1",
     "yosay": "^2.0.2"
   },
   "devDependencies": {
-    "yeoman-test": "^1.7.2",
+    "yeoman-test": "^1.9.1",
     "yeoman-assert": "^3.1.1",
-    "eslint": "^3.1.1",
-    "eslint-config-xo-space": "^0.15.0",
-    "gulp": "^3.9.1",
-    "gulp-eslint": "^3.0.1",
-    "gulp-exclude-gitignore": "^1.0.0",
-    "gulp-line-ending-corrector": "^1.0.1",
-    "gulp-istanbul": "^1.0.0",
-    "gulp-mocha": "^5.0.0",
-    "gulp-plumber": "^1.2.0",
-    "gulp-nsp": "^3.0.1"
+    "eslint": "^5.12.0",
+    "eslint-config-xo-space": "^0.20.0",
+    "gulp": "^4.0.0",
+    "gulp-eslint": "^5.0.0",
+    "gulp-exclude-gitignore": "^1.2.0",
+    "gulp-line-ending-corrector": "^1.0.3",
+    "gulp-istanbul": "^1.1.3",
+    "gulp-mocha": "^6.0.0",
+    "gulp-plumber": "^1.2.0"
   },
   "eslintConfig": {
     "extends": "xo-space",
@@ -36,7 +44,7 @@
   },
   "repository": "bn3t/generator-ngx-firebase-bootstrap",
   "scripts": {
-    "prepublish": "gulp prepublish",
+    "prepublish": "npm audit --audit-level high",
     "test": "gulp",
     "test:watch": "gulp watch"
   },
