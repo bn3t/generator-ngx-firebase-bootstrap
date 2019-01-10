@@ -9,46 +9,49 @@ with those tools and offers a framework for authentication right out of the box.
 
 ## Features
 
-* An **Angular 6** app generated with angular-cli (Angular 6.0.2)
-* Twitter Bootstrap with ngx-bootstrap
-* AngularFire2 and Firebase
-* An initial implementation of an authentication service (See auth-service)
-* One component to display user information
-* One component to login using username/password, Google or Twitter
-* One component to allow a user to register himself with username/password.
-* One component for password reset (when using username/password).
-* An Angular Router setup to allow navigation between the following pages of your application:
-  * An All-in-one page to show all above components
-  * A Home page that shows user information when logged in
-  * A Dashboard page as an example of a Guarded page in your application (only available when logged in)
-  * A Login page which shows the login component and the reset password component
-  * A Register page which shows the register component
-  * A LoggedInGuard to use in your router configuration for page that requires the user to be logged in
+- An **Angular 7** app generated with angular-cli (Angular 7.2.0)
+- Twitter Bootstrap with ngx-bootstrap
+- AngularFire and Firebase
+- An initial implementation of an authentication service (See auth-service)
+- One component to display user information
+- One component to login using username/password, Google or Twitter
+- One component to allow a user to register himself with username/password.
+- One component for password reset (when using username/password).
+- An Angular Router setup to allow navigation between the following pages of your application:
+  - An All-in-one page to show all above components
+  - A Home page that shows user information when logged in
+  - A Dashboard page as an example of a Guarded page in your application (only available when logged in)
+  - A Login page which shows the login component and the reset password component
+  - A Register page which shows the register component
+  - A LoggedInGuard to use in your router configuration for page that requires the user to be logged in
 
 Now the router setup allows navigation between the pages and the components. You will just need to customize the Home page
 and add more pages to your own needs.
 
+If you like and/or use this generator, please star this project on Github.
+
 ## Installation
 
-### Requirement Node 6+ && NPM 3+
+### Requirement Node 10+ && NPM 6+
 
-This generator is targeted to be used with Node >= 9.8.0 and NPM >= 6.0.0. You can check your version number with the command
+This generator is targeted to be used with Node >= 10.0.0 and NPM >= 6.0.0. You can check your version number with the command
 
 ```shell
 $ node --version && npm --version
-v9.8.0
-6.0.1
+v10.13.0
+6.5.0
 ```
 
 ### Requirement Angular CLI
 
-To build and run this project, you will need Angular CLI. This version is compatible with @angular/cli 6.0.3. If you have
+To build and run this project, you will need Angular CLI. This version is compatible with @angular/cli 7.2.1. If you have
 any previous instantiation of the Angular CLI, you should remove them.
 
 ```shell
 $ npm uninstall -g angular-cli # remove any previous angular-cli
 $ npm i -g @angular/cli
 $ ng --version
+
      _                      _                 ____ _     ___
     / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
    / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
@@ -57,20 +60,20 @@ $ ng --version
                 |___/
 
 
-Angular CLI: 6.0.3
-Node: 9.11.1
+Angular CLI: 7.2.1
+Node: 10.13.0
 OS: darwin x64
 Angular: undefined
 ...
 
 Package                      Version
 ------------------------------------------------------
-@angular-devkit/architect    0.6.3 (cli-only)
-@angular-devkit/core         0.6.3 (cli-only)
-@angular-devkit/schematics   0.6.3 (cli-only)
-@schematics/angular          0.6.3 (cli-only)
-@schematics/update           0.6.3 (cli-only)
-rxjs                         5.5.10
+@angular-devkit/architect    0.12.1 (cli-only)
+@angular-devkit/core         7.2.1 (cli-only)
+@angular-devkit/schematics   7.2.1 (cli-only)
+@schematics/angular          7.2.1 (cli-only)
+@schematics/update           0.12.1 (cli-only)
+rxjs                         6.3.3
 ```
 
 ### Steps to install
@@ -106,11 +109,11 @@ provider that can handle several types of authentication.
 
 The generator will ask you a few information on your Firebase project:
 
-* Your Api Key
-* Your Auth Domain
-* Your Database URL
-* Your Storage Bucket
-* Your Messaging SenderId
+- Your Api Key
+- Your Auth Domain
+- Your Database URL
+- Your Storage Bucket
+- Your Messaging SenderId
 
 You should have those handy when you run the generator. Otherwise, you can go and fill
 in those values in the firebaseConfig.ts file in the generated project.
